@@ -1,0 +1,73 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { createApp } from '../apps/api/server.mjs';
+import { mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+
+test('groups, missions, custom agents and reports stay inside their organization', async()=>{
+  const dir=mkdtempSync(join(tmpdir(),'build-bot-extension-'));
+  const app=createApp({databasePath:join(dir,'app.sqlite'),fixtureResearch:true});
+  await new Promise(resolve=>app.server.listen(0,'127.0.0.1',resolve));
+  const base=`http://127.0.0.1:${app.server.address().port}/api`;
+  const call=async(path,method='GET',payload,cookie='')=>{
+    const response=await fetch(base+path,{method,headers:{...(payload?{'content-type':'application/json'}:{}),...(cookie?{cookie}:{})},body:payload?JSON.stringify(payload):undefined});
+    return {status:response.status,body:await response.json(),cookie:response.headers.get('set-cookie')?.split(';')[0]};
+  };
+  try {
+    const a=await call('/auth/register','POST',{email:'extension-a@example.com',password:'test-password-a',organization:'Extension Alpha'});
+    const b=await call('/auth/register','POST',{email:'extension-b@example.com',password:'test-password-b',organization:'Extension Beta'});
+    const alpha=(await call('/state','GET',undefined,a.cookie)).body;
+    for(const slug of ['chief','intelligence-manager','finance-manager']) assert.equal((await call(`/agents/${alpha.agents.find(agent=>agent.slug===slug).id}/activate`,'POST',{},a.cookie)).status,200);
+    const intelligence=alpha.agents.find(agent=>agent.slug==='intelligence-manager');
+    const group=await call('/groups','POST',{title:'Research circle',agentIds:[intelligence.id]},a.cookie);
+    assert.equal(group.status,201);
+    const groupTask=await call('/research','POST',{objective:'Research low-carbon concrete',conversationId:group.body.groupId},a.cookie);
+    assert.equal(groupTask.status,201,JSON.stringify(groupTask.body));
+    await app.work();
+    const state=(await call('/state','GET',undefined,a.cookie)).body;
+    assert.equal(state.groups.length,1);
+    assert.equal(state.groupMessages.length,4);
+    assert.equal(state.tasks[0].status,'completed');
+    assert.equal((await call('/research','POST',{objective:'Research private data',conversationId:group.body.groupId},b.cookie)).status,404);
+    const finance=alpha.agents.find(agent=>agent.slug==='finance-manager');
+    const financeGroup=await call('/groups','POST',{title:'Finance research team',agentIds:[finance.id]},a.cookie);
+    assert.equal(financeGroup.status,201);
+    const financeGroupTask=await call('/research','POST',{objective:'Research public accounting standards',conversationId:financeGroup.body.groupId},a.cookie);
+    assert.equal(financeGroupTask.status,201,JSON.stringify(financeGroupTask.body));
+    await app.work();
+    assert.equal((await call('/state','GET',undefined,a.cookie)).body.tasks.find(task=>task.id===financeGroupTask.body.taskId).agent_id,finance.id);
+    const mission=await call('/missions','POST',{title:'Materials review',objective:'Research sustainable timber suppliers'},a.cookie);
+    assert.equal(mission.status,201);
+    assert.equal((await call(`/missions/${mission.body.missionId}/propose`,'POST',{},a.cookie)).status,200);
+    assert.equal((await call(`/missions/${mission.body.missionId}/activate`,'POST',{},a.cookie)).status,200);
+    await app.work();
+    const afterMission=(await call('/state','GET',undefined,a.cookie)).body;
+    assert.equal(afterMission.missions[0].status,'completed');
+    assert.equal((await call(`/missions/${mission.body.missionId}/cancel`,'POST',{},b.cookie)).status,404);
+    const custom=await call('/agents','POST',{name:'Project Analyst',role:'Project analysis',instructions:'Read scoped project data.',accent:'#4F46E5'},a.cookie);
+    assert.equal(custom.status,201);
+    const customResearch=await call(`/agents/${custom.body.agentId}/research`,'POST',{objective:'Research public project delivery methods'},a.cookie);
+    assert.equal(customResearch.status,201,JSON.stringify(customResearch.body));
+    await app.work();
+    const afterCustom=(await call('/state','GET',undefined,a.cookie)).body;
+    assert.equal(afterCustom.tasks[0].agent_id,custom.body.agentId);
+    assert.equal(afterCustom.tasks[0].status,'completed');
+    assert.ok(afterCustom.groupMessages.some(message=>message.conversation_id===customResearch.body.conversationId && message.sender.startsWith('custom-')));
+    assert.equal((await call(`/agents/${custom.body.agentId}/research`,'POST',{objective:'Research public project delivery methods'},b.cookie)).status,404);
+    const edited=await call(`/agents/${custom.body.agentId}`,'PATCH',{role:'Bid analysis'},a.cookie);
+    assert.equal(edited.body.version,2);
+    assert.equal((await call(`/agents/${custom.body.agentId}/disable`,'POST',{},a.cookie)).status,200);
+    assert.equal((await call(`/agents/${custom.body.agentId}/research`,'POST',{objective:'Research public project delivery methods'},a.cookie)).status,404);
+    assert.equal((await call(`/agents/${custom.body.agentId}`,'PATCH',{name:'Intruder'},b.cookie)).status,404);
+    const report=await call('/reports/generate','POST',{type:'daily'},a.cookie);
+    assert.equal(report.status,200);
+    assert.equal(report.body.content.counts.completed,4);
+    assert.ok(report.body.content.items.every(item=>item.evidence.length===1));
+    assert.equal((await call('/reports/generate','POST',{type:'daily'},a.cookie)).body.id,report.body.id);
+    assert.equal((await call('/state','GET',undefined,b.cookie)).body.reports.length,0);
+    assert.equal((await call('/settings/timezone','PATCH',{timezone:'Africa/Johannesburg'},a.cookie)).status,200);
+  } finally {
+    await app.close();rmSync(dir,{recursive:true,force:true});
+  }
+});

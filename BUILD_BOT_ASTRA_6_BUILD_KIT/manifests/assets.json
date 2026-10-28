@@ -1,0 +1,1934 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-12T22:54:19.119133+00:00",
+  "product": "BUILD BOT",
+  "built_in_agents": [
+    {
+      "order": 1,
+      "slug": "chief",
+      "name": "CHIEF",
+      "role": "AI Executive Orchestrator",
+      "group": "01_Royal_Blue",
+      "uses": {
+        "primary": "02_futuristic_blue_glow_robot_mascot.png",
+        "working": "05_neon_analytics_robot_assistant.png",
+        "greeting": "07_waving_neon_blue_robot_mascot.png",
+        "success": "04_glossy_blue_eyed_robot_mascot.png",
+        "portrait": "01_cheerful_neon_blue_sci_fi_robot.png"
+      }
+    },
+    {
+      "order": 2,
+      "slug": "operations-manager",
+      "name": "Operations Manager",
+      "role": "Business operations and execution",
+      "group": "02_Cyan_Blue",
+      "uses": {
+        "primary": "03_friendly_cyan_robot_mascot.png",
+        "working": "02_cute_cyan_robot_with_holographic_dashboard.png",
+        "greeting": "04_friendly_neon_robot_mascot.png",
+        "success": "05_glossy_cyan_robot_thumbs_up.png",
+        "portrait": "06_heroic_neon_cyan_robot_mascot.png"
+      }
+    },
+    {
+      "order": 3,
+      "slug": "finance-manager",
+      "name": "Finance Manager",
+      "role": "Financial monitoring and authorized finance workflows",
+      "group": "03_Emerald_Green",
+      "uses": {
+        "primary": "02_emerald_neon_robot_portrait.png",
+        "working": "01_cheerful_robot_analyzing_holographic_data.png",
+        "greeting": "06_glossy_green_robot_waving_cheerfully.png",
+        "success": "05_glossy_emerald_robot_thumbs_up.png",
+        "portrait": "08_smiling_emerald_robot_welcome.png"
+      }
+    },
+    {
+      "order": 4,
+      "slug": "sales-manager",
+      "name": "Sales Manager",
+      "role": "Pipeline, proposals, opportunities, and sales performance",
+      "group": "04_Purple_Violet",
+      "uses": {
+        "primary": "08_glossy_purple_robot_portrait.png",
+        "working": "03_friendly_purple_robot_analytics_dashboard.png",
+        "greeting": "07_glossy_purple_robot_mascot_waving.png",
+        "success": "06_glossy_purple_robot_mascot_thumbs_up.png",
+        "portrait": "02_friendly_purple_ai_assistant_robot.png"
+      }
+    },
+    {
+      "order": 5,
+      "slug": "outbound-manager",
+      "name": "Outbound Manager",
+      "role": "Prospecting, outreach, and authorized follow-up",
+      "group": "05_Crimson_Red",
+      "uses": {
+        "primary": "03_crimson_wink_robot_portrait.png",
+        "working": "02_crimson_robot_analyzing_holographic_dashboard.png",
+        "greeting": "06_glossy_crimson_robot_waving.png",
+        "success": "05_glossy_crimson_robot_thumbs_up.png",
+        "portrait": "08_welcoming_crimson_robot_mascot.png"
+      }
+    },
+    {
+      "order": 6,
+      "slug": "intelligence-manager",
+      "name": "Intelligence Manager",
+      "role": "Market research and competitive intelligence",
+      "group": "06_Gold_Amber",
+      "uses": {
+        "primary": "05_golden_robot_with_crescent_eyes.png",
+        "working": "02_golden_robot_analytics_mascot.png",
+        "greeting": "03_golden_robot_mascot_waving.png",
+        "success": "04_golden_robot_thumbs_up_mascot.png",
+        "portrait": "01_glossy_gold_hovering_robot_mascot.png"
+      }
+    },
+    {
+      "order": 7,
+      "slug": "crm-manager",
+      "name": "CRM Manager",
+      "role": "Customer records, relationships, and follow-ups",
+      "group": "07_Orange",
+      "uses": {
+        "primary": "03_glossy_orange_robot_mascot_portrait.png",
+        "working": "01_futuristic_orange_robot_analytics_assistant.png",
+        "greeting": "04_glossy_orange_robot_mascot_waving.png",
+        "success": "05_glossy_orange_robot_thumbs_up.png",
+        "portrait": "02_glossy_orange_robot_mascot.png"
+      }
+    },
+    {
+      "order": 8,
+      "slug": "marketing-manager",
+      "name": "Marketing Manager",
+      "role": "Campaigns, content, promotion, and performance",
+      "group": "08_Magenta_Pink",
+      "uses": {
+        "primary": "02_glossy_pink_robot_mascot_portrait.png",
+        "working": "05_neon_pink_robot_analytics_mascot.png",
+        "greeting": "03_glossy_pink_robot_mascot_waving.png",
+        "success": "04_glossy_pink_robot_thumbs_up.png",
+        "portrait": "01_cheerful_pink_robot_stride.png"
+      }
+    },
+    {
+      "order": 9,
+      "slug": "technology-manager",
+      "name": "Technology Manager",
+      "role": "Integrations, technical tasks, and computer operations",
+      "group": "09_Teal",
+      "uses": {
+        "primary": "04_glossy_teal_robot_mascot_with_crescent_eyes.png",
+        "working": "03_futuristic_robot_analytics_mascot.png",
+        "greeting": "02_friendly_teal_robot_mascot_waving.png",
+        "success": "05_glossy_teal_robot_thumbs_up.png",
+        "portrait": "01_cheerful_teal_robot_mascot_wave.png"
+      }
+    },
+    {
+      "order": 10,
+      "slug": "tender-bid-manager",
+      "name": "Tender & Bid Manager",
+      "role": "Tender discovery, eligibility, preparation, and deadlines",
+      "group": "10_Silver_Graphite",
+      "uses": {
+        "primary": "05_futuristic_friendly_robot_portrait.png",
+        "working": "04_friendly_robot_analytics_dashboard.png",
+        "greeting": "03_friendly_futuristic_robot_waving.png",
+        "success": "02_friendly_futuristic_robot_thumbs_up.png",
+        "portrait": "01_friendly_futuristic_robot_mascot.png"
+      }
+    },
+    {
+      "order": 11,
+      "slug": "estimating-commercial-manager",
+      "name": "Estimating & Commercial Manager",
+      "role": "Quotations, BOQs, estimates, pricing, and commercial review",
+      "group": "11_Lime_Neon_Green",
+      "uses": {
+        "primary": "02_neon_green_friendly_robot_mascot.png",
+        "working": "01_cheerful_robot_presenting_neon_analytics.png",
+        "greeting": "05_neon_green_robot_mascot_waving.png",
+        "success": "04_neon_green_robot_mascot_thumbs_up.png",
+        "portrait": "03_neon_green_optimist_robot_portrait.png"
+      }
+    }
+  ],
+  "custom_agent_palette": {
+    "midnight": "#1E293B",
+    "indigo": "#4F46E5",
+    "sapphire": "#2563EB",
+    "azure": "#0284C7",
+    "aqua": "#0891B2",
+    "mint": "#059669",
+    "forest": "#15803D",
+    "olive": "#4D7C0F",
+    "sunflower": "#CA8A04",
+    "amber": "#D97706",
+    "coral": "#EA580C",
+    "rose": "#E11D48",
+    "berry": "#BE185D",
+    "orchid": "#C026D3",
+    "violet": "#7C3AED",
+    "cocoa": "#92400E",
+    "slate": "#475569",
+    "platinum": "#71717A"
+  },
+  "assets": [
+    {
+      "kind": "agent_avatar",
+      "agent_order": 1,
+      "agent_slug": "chief",
+      "agent_name": "CHIEF",
+      "role": "AI Executive Orchestrator",
+      "color_group": "01_Royal_Blue",
+      "intended_use": "portrait",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/01_Royal_Blue/01_cheerful_neon_blue_sci_fi_robot.png",
+      "packaged_path": "assets/agents/chief/01-cheerful-neon-blue-sci-fi-robot.png",
+      "sha256": "2d9304f2d1d95b00153c2233c29913526489bf0c30107b5ddb0bb40b3fa713f7",
+      "bytes": 1667951,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 1,
+      "agent_slug": "chief",
+      "agent_name": "CHIEF",
+      "role": "AI Executive Orchestrator",
+      "color_group": "01_Royal_Blue",
+      "intended_use": "primary",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/01_Royal_Blue/02_futuristic_blue_glow_robot_mascot.png",
+      "packaged_path": "assets/agents/chief/02-futuristic-blue-glow-robot-mascot.png",
+      "sha256": "f3cb432b3fca2ca695863254aed01fc1af8beedcea801f2674e828574266d7d6",
+      "bytes": 1581663,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 1,
+      "agent_slug": "chief",
+      "agent_name": "CHIEF",
+      "role": "AI Executive Orchestrator",
+      "color_group": "01_Royal_Blue",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/01_Royal_Blue/03_futuristic_blue_lit_robot_mascot.png",
+      "packaged_path": "assets/agents/chief/03-futuristic-blue-lit-robot-mascot.png",
+      "sha256": "cbc20a4a6bf9ad8eb642ae5d51368cf674ac74e3286f79f369126f225229f6b2",
+      "bytes": 1450195,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 1,
+      "agent_slug": "chief",
+      "agent_name": "CHIEF",
+      "role": "AI Executive Orchestrator",
+      "color_group": "01_Royal_Blue",
+      "intended_use": "success",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/01_Royal_Blue/04_glossy_blue_eyed_robot_mascot.png",
+      "packaged_path": "assets/agents/chief/04-glossy-blue-eyed-robot-mascot.png",
+      "sha256": "25008ebe31352d44c4b88301afc80770088ede9724672cc5ca4bf671349a7002",
+      "bytes": 1705034,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 1,
+      "agent_slug": "chief",
+      "agent_name": "CHIEF",
+      "role": "AI Executive Orchestrator",
+      "color_group": "01_Royal_Blue",
+      "intended_use": "working",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/01_Royal_Blue/05_neon_analytics_robot_assistant.png",
+      "packaged_path": "assets/agents/chief/05-neon-analytics-robot-assistant.png",
+      "sha256": "c9c861bbc521ff7aeee5b7b23f87f6d22d46a089eba50ce8a6b7fd9a4e4b1c3a",
+      "bytes": 1531026,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 1,
+      "agent_slug": "chief",
+      "agent_name": "CHIEF",
+      "role": "AI Executive Orchestrator",
+      "color_group": "01_Royal_Blue",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/01_Royal_Blue/06_neon_blue_welcome_robot.png",
+      "packaged_path": "assets/agents/chief/06-neon-blue-welcome-robot.png",
+      "sha256": "ad7481cf89b1de1178cb5fa828212da5a4c7032990faf40d79039d2b726ed9a3",
+      "bytes": 1453452,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 1,
+      "agent_slug": "chief",
+      "agent_name": "CHIEF",
+      "role": "AI Executive Orchestrator",
+      "color_group": "01_Royal_Blue",
+      "intended_use": "greeting",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/01_Royal_Blue/07_waving_neon_blue_robot_mascot.png",
+      "packaged_path": "assets/agents/chief/07-waving-neon-blue-robot-mascot.png",
+      "sha256": "0ff68a601c4c726da4b9796407e61a5ba8f52c0a2180233eb0e49d12a8b1380b",
+      "bytes": 1426722,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 7,
+      "agent_slug": "crm-manager",
+      "agent_name": "CRM Manager",
+      "role": "Customer records, relationships, and follow-ups",
+      "color_group": "07_Orange",
+      "intended_use": "working",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/07_Orange/01_futuristic_orange_robot_analytics_assistant.png",
+      "packaged_path": "assets/agents/crm-manager/01-futuristic-orange-robot-analytics-assistant.png",
+      "sha256": "9cc625342e01ecd2e287360d5aa579a5d5298207dc038475364e97d875c0e1a7",
+      "bytes": 1542837,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 7,
+      "agent_slug": "crm-manager",
+      "agent_name": "CRM Manager",
+      "role": "Customer records, relationships, and follow-ups",
+      "color_group": "07_Orange",
+      "intended_use": "portrait",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/07_Orange/02_glossy_orange_robot_mascot.png",
+      "packaged_path": "assets/agents/crm-manager/02-glossy-orange-robot-mascot.png",
+      "sha256": "9d821dcf78296bf6b84f99663ba499b4c427f23f734b141be406aeb47a418a51",
+      "bytes": 1296140,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 7,
+      "agent_slug": "crm-manager",
+      "agent_name": "CRM Manager",
+      "role": "Customer records, relationships, and follow-ups",
+      "color_group": "07_Orange",
+      "intended_use": "primary",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/07_Orange/03_glossy_orange_robot_mascot_portrait.png",
+      "packaged_path": "assets/agents/crm-manager/03-glossy-orange-robot-mascot-portrait.png",
+      "sha256": "fc7b10b3f479a1ca63a4341d15bb416e33b1e6b0c59a998ba67835c58d8f19df",
+      "bytes": 1388693,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 7,
+      "agent_slug": "crm-manager",
+      "agent_name": "CRM Manager",
+      "role": "Customer records, relationships, and follow-ups",
+      "color_group": "07_Orange",
+      "intended_use": "greeting",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/07_Orange/04_glossy_orange_robot_mascot_waving.png",
+      "packaged_path": "assets/agents/crm-manager/04-glossy-orange-robot-mascot-waving.png",
+      "sha256": "dc5083ff7a3599172c6e6d7e4cf601995ed900a6564136b1ed5dbc5ff6ede71b",
+      "bytes": 1248237,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 7,
+      "agent_slug": "crm-manager",
+      "agent_name": "CRM Manager",
+      "role": "Customer records, relationships, and follow-ups",
+      "color_group": "07_Orange",
+      "intended_use": "success",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/07_Orange/05_glossy_orange_robot_thumbs_up.png",
+      "packaged_path": "assets/agents/crm-manager/05-glossy-orange-robot-thumbs-up.png",
+      "sha256": "2a244d29e39731bb095881df63ad8978dc987dfbba31484cafd6a93d403fe0f9",
+      "bytes": 1452377,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 11,
+      "agent_slug": "estimating-commercial-manager",
+      "agent_name": "Estimating & Commercial Manager",
+      "role": "Quotations, BOQs, estimates, pricing, and commercial review",
+      "color_group": "11_Lime_Neon_Green",
+      "intended_use": "working",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/11_Lime_Neon_Green/01_cheerful_robot_presenting_neon_analytics.png",
+      "packaged_path": "assets/agents/estimating-commercial-manager/01-cheerful-robot-presenting-neon-analytics.png",
+      "sha256": "7a5b391bba4d319c454c0bd6825158a5f03454b239474b3f1aaa8efb57d24410",
+      "bytes": 1562252,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 11,
+      "agent_slug": "estimating-commercial-manager",
+      "agent_name": "Estimating & Commercial Manager",
+      "role": "Quotations, BOQs, estimates, pricing, and commercial review",
+      "color_group": "11_Lime_Neon_Green",
+      "intended_use": "primary",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/11_Lime_Neon_Green/02_neon_green_friendly_robot_mascot.png",
+      "packaged_path": "assets/agents/estimating-commercial-manager/02-neon-green-friendly-robot-mascot.png",
+      "sha256": "932d2948a2a0a752052ce589ab3a00e48718021524317f4fe6779fc931478ca2",
+      "bytes": 1748134,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 11,
+      "agent_slug": "estimating-commercial-manager",
+      "agent_name": "Estimating & Commercial Manager",
+      "role": "Quotations, BOQs, estimates, pricing, and commercial review",
+      "color_group": "11_Lime_Neon_Green",
+      "intended_use": "portrait",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/11_Lime_Neon_Green/03_neon_green_optimist_robot_portrait.png",
+      "packaged_path": "assets/agents/estimating-commercial-manager/03-neon-green-optimist-robot-portrait.png",
+      "sha256": "d25199e98c2d8f859dfa6125d5e0ae79e969ac0f0e9da4493f18c6096670ba3f",
+      "bytes": 1522325,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 11,
+      "agent_slug": "estimating-commercial-manager",
+      "agent_name": "Estimating & Commercial Manager",
+      "role": "Quotations, BOQs, estimates, pricing, and commercial review",
+      "color_group": "11_Lime_Neon_Green",
+      "intended_use": "success",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/11_Lime_Neon_Green/04_neon_green_robot_mascot_thumbs_up.png",
+      "packaged_path": "assets/agents/estimating-commercial-manager/04-neon-green-robot-mascot-thumbs-up.png",
+      "sha256": "197e23125d0a139d2ca56a832e5941eb714d668e07950ca6d8e6485fab9ad197",
+      "bytes": 1481834,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 11,
+      "agent_slug": "estimating-commercial-manager",
+      "agent_name": "Estimating & Commercial Manager",
+      "role": "Quotations, BOQs, estimates, pricing, and commercial review",
+      "color_group": "11_Lime_Neon_Green",
+      "intended_use": "greeting",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/11_Lime_Neon_Green/05_neon_green_robot_mascot_waving.png",
+      "packaged_path": "assets/agents/estimating-commercial-manager/05-neon-green-robot-mascot-waving.png",
+      "sha256": "09bd98816da9fa786a7e3a94be7af896f8b52e463dc9e90c633b911152b8cdc5",
+      "bytes": 1326898,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 3,
+      "agent_slug": "finance-manager",
+      "agent_name": "Finance Manager",
+      "role": "Financial monitoring and authorized finance workflows",
+      "color_group": "03_Emerald_Green",
+      "intended_use": "working",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/03_Emerald_Green/01_cheerful_robot_analyzing_holographic_data.png",
+      "packaged_path": "assets/agents/finance-manager/01-cheerful-robot-analyzing-holographic-data.png",
+      "sha256": "9fedcbbfa31898f997b9d5cc534d6f0732f5557a5f186df8335f4c5245eb9e76",
+      "bytes": 1460465,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 3,
+      "agent_slug": "finance-manager",
+      "agent_name": "Finance Manager",
+      "role": "Financial monitoring and authorized finance workflows",
+      "color_group": "03_Emerald_Green",
+      "intended_use": "primary",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/03_Emerald_Green/02_emerald_neon_robot_portrait.png",
+      "packaged_path": "assets/agents/finance-manager/02-emerald-neon-robot-portrait.png",
+      "sha256": "4105513f67c4a17dea8a2077dbb31450b3d12c198d32a83971ab872b72b5f643",
+      "bytes": 1555951,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 3,
+      "agent_slug": "finance-manager",
+      "agent_name": "Finance Manager",
+      "role": "Financial monitoring and authorized finance workflows",
+      "color_group": "03_Emerald_Green",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/03_Emerald_Green/03_friendly_green_robot_assistant.png",
+      "packaged_path": "assets/agents/finance-manager/03-friendly-green-robot-assistant.png",
+      "sha256": "350914ea0373ded884c11b54211ad72703d9ed92def549e565c882980d3261b9",
+      "bytes": 1294200,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 3,
+      "agent_slug": "finance-manager",
+      "agent_name": "Finance Manager",
+      "role": "Financial monitoring and authorized finance workflows",
+      "color_group": "03_Emerald_Green",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/03_Emerald_Green/04_glossy_emerald_robot_mascot.png",
+      "packaged_path": "assets/agents/finance-manager/04-glossy-emerald-robot-mascot.png",
+      "sha256": "1e5572e26ed3572ea7d72f3c4234fde5340ecaca74f2c5218624c8a1bd023bb1",
+      "bytes": 1500707,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 3,
+      "agent_slug": "finance-manager",
+      "agent_name": "Finance Manager",
+      "role": "Financial monitoring and authorized finance workflows",
+      "color_group": "03_Emerald_Green",
+      "intended_use": "success",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/03_Emerald_Green/05_glossy_emerald_robot_thumbs_up.png",
+      "packaged_path": "assets/agents/finance-manager/05-glossy-emerald-robot-thumbs-up.png",
+      "sha256": "8dab95679ee7d49f2fcd56eea4c80dab1eb6fafcd3dc0caf0bc9f688a1459f1c",
+      "bytes": 1184301,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 3,
+      "agent_slug": "finance-manager",
+      "agent_name": "Finance Manager",
+      "role": "Financial monitoring and authorized finance workflows",
+      "color_group": "03_Emerald_Green",
+      "intended_use": "greeting",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/03_Emerald_Green/06_glossy_green_robot_waving_cheerfully.png",
+      "packaged_path": "assets/agents/finance-manager/06-glossy-green-robot-waving-cheerfully.png",
+      "sha256": "e585beb2508ab3a1b0b4b2e58ffbe430d6588020df6a52d0b2dc68352b31f775",
+      "bytes": 1399704,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 3,
+      "agent_slug": "finance-manager",
+      "agent_name": "Finance Manager",
+      "role": "Financial monitoring and authorized finance workflows",
+      "color_group": "03_Emerald_Green",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/03_Emerald_Green/07_heroic_emerald_robot_mascot_reaching_out.png",
+      "packaged_path": "assets/agents/finance-manager/07-heroic-emerald-robot-mascot-reaching-out.png",
+      "sha256": "100bf4c9595cf2e115e04cf5d39eb175b32f50402ec0c31a86f96e06ed230720",
+      "bytes": 1349380,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 3,
+      "agent_slug": "finance-manager",
+      "agent_name": "Finance Manager",
+      "role": "Financial monitoring and authorized finance workflows",
+      "color_group": "03_Emerald_Green",
+      "intended_use": "portrait",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/03_Emerald_Green/08_smiling_emerald_robot_welcome.png",
+      "packaged_path": "assets/agents/finance-manager/08-smiling-emerald-robot-welcome.png",
+      "sha256": "1cb2988ab8ae8bb284b9e74573d77d88004fc99730dbc076a3150e786af88309",
+      "bytes": 927055,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 6,
+      "agent_slug": "intelligence-manager",
+      "agent_name": "Intelligence Manager",
+      "role": "Market research and competitive intelligence",
+      "color_group": "06_Gold_Amber",
+      "intended_use": "portrait",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/06_Gold_Amber/01_glossy_gold_hovering_robot_mascot.png",
+      "packaged_path": "assets/agents/intelligence-manager/01-glossy-gold-hovering-robot-mascot.png",
+      "sha256": "7e12d8d42387cdfdb69e246a1371963ef64fc7f4629494aa1524d84132de4bce",
+      "bytes": 1381249,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 6,
+      "agent_slug": "intelligence-manager",
+      "agent_name": "Intelligence Manager",
+      "role": "Market research and competitive intelligence",
+      "color_group": "06_Gold_Amber",
+      "intended_use": "working",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/06_Gold_Amber/02_golden_robot_analytics_mascot.png",
+      "packaged_path": "assets/agents/intelligence-manager/02-golden-robot-analytics-mascot.png",
+      "sha256": "0f71b92477c3ab94f7599bec6b899524b19ff2bfe67627b51167640f9f70dd28",
+      "bytes": 1525698,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 6,
+      "agent_slug": "intelligence-manager",
+      "agent_name": "Intelligence Manager",
+      "role": "Market research and competitive intelligence",
+      "color_group": "06_Gold_Amber",
+      "intended_use": "greeting",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/06_Gold_Amber/03_golden_robot_mascot_waving.png",
+      "packaged_path": "assets/agents/intelligence-manager/03-golden-robot-mascot-waving.png",
+      "sha256": "f6adc7d264ed1b7d7eb939e914bddb1618f52412f360cad8cfde554936c09404",
+      "bytes": 1400783,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 6,
+      "agent_slug": "intelligence-manager",
+      "agent_name": "Intelligence Manager",
+      "role": "Market research and competitive intelligence",
+      "color_group": "06_Gold_Amber",
+      "intended_use": "success",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/06_Gold_Amber/04_golden_robot_thumbs_up_mascot.png",
+      "packaged_path": "assets/agents/intelligence-manager/04-golden-robot-thumbs-up-mascot.png",
+      "sha256": "f8355ca400341235022a052b634b326a7dc25dce55ec0fb00e6118a621a0b89d",
+      "bytes": 1389515,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 6,
+      "agent_slug": "intelligence-manager",
+      "agent_name": "Intelligence Manager",
+      "role": "Market research and competitive intelligence",
+      "color_group": "06_Gold_Amber",
+      "intended_use": "primary",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/06_Gold_Amber/05_golden_robot_with_crescent_eyes.png",
+      "packaged_path": "assets/agents/intelligence-manager/05-golden-robot-with-crescent-eyes.png",
+      "sha256": "503ae5ddcb71496980b345662f433c238293a85759fc521e176fe174f98222cd",
+      "bytes": 1309407,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 8,
+      "agent_slug": "marketing-manager",
+      "agent_name": "Marketing Manager",
+      "role": "Campaigns, content, promotion, and performance",
+      "color_group": "08_Magenta_Pink",
+      "intended_use": "portrait",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/08_Magenta_Pink/01_cheerful_pink_robot_stride.png",
+      "packaged_path": "assets/agents/marketing-manager/01-cheerful-pink-robot-stride.png",
+      "sha256": "39fa101a9797168cce4652dcc31b5cd8c7b08710ab100d0bb42adc95a1a8e221",
+      "bytes": 1241822,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 8,
+      "agent_slug": "marketing-manager",
+      "agent_name": "Marketing Manager",
+      "role": "Campaigns, content, promotion, and performance",
+      "color_group": "08_Magenta_Pink",
+      "intended_use": "primary",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/08_Magenta_Pink/02_glossy_pink_robot_mascot_portrait.png",
+      "packaged_path": "assets/agents/marketing-manager/02-glossy-pink-robot-mascot-portrait.png",
+      "sha256": "617b3d94a01322926c78755321f89f190896fe09147709c9066be7ac9f7271cc",
+      "bytes": 1587370,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 8,
+      "agent_slug": "marketing-manager",
+      "agent_name": "Marketing Manager",
+      "role": "Campaigns, content, promotion, and performance",
+      "color_group": "08_Magenta_Pink",
+      "intended_use": "greeting",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/08_Magenta_Pink/03_glossy_pink_robot_mascot_waving.png",
+      "packaged_path": "assets/agents/marketing-manager/03-glossy-pink-robot-mascot-waving.png",
+      "sha256": "6a83a89b4f46b32be479341bb242fd52ba6de94ef3ae7e0cc78b001a7eaf3e49",
+      "bytes": 1415007,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 8,
+      "agent_slug": "marketing-manager",
+      "agent_name": "Marketing Manager",
+      "role": "Campaigns, content, promotion, and performance",
+      "color_group": "08_Magenta_Pink",
+      "intended_use": "success",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/08_Magenta_Pink/04_glossy_pink_robot_thumbs_up.png",
+      "packaged_path": "assets/agents/marketing-manager/04-glossy-pink-robot-thumbs-up.png",
+      "sha256": "0597d64dc7cc655668ec39ddafd16334863dad9ee0dffcc7103f4a77890df345",
+      "bytes": 1553201,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 8,
+      "agent_slug": "marketing-manager",
+      "agent_name": "Marketing Manager",
+      "role": "Campaigns, content, promotion, and performance",
+      "color_group": "08_Magenta_Pink",
+      "intended_use": "working",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/08_Magenta_Pink/05_neon_pink_robot_analytics_mascot.png",
+      "packaged_path": "assets/agents/marketing-manager/05-neon-pink-robot-analytics-mascot.png",
+      "sha256": "1496e4307f1a6e73868a0c644ac7ee1374245e6b947450740cbfdfb08d562f66",
+      "bytes": 1595513,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 2,
+      "agent_slug": "operations-manager",
+      "agent_name": "Operations Manager",
+      "role": "Business operations and execution",
+      "color_group": "02_Cyan_Blue",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/02_Cyan_Blue/01_cheerful_neon_robot_mascot.png",
+      "packaged_path": "assets/agents/operations-manager/01-cheerful-neon-robot-mascot.png",
+      "sha256": "d12e408923a74cfe2a98ec784687047b4cbc0e1579d0dc30c69c72ce911be3e4",
+      "bytes": 1288640,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 2,
+      "agent_slug": "operations-manager",
+      "agent_name": "Operations Manager",
+      "role": "Business operations and execution",
+      "color_group": "02_Cyan_Blue",
+      "intended_use": "working",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/02_Cyan_Blue/02_cute_cyan_robot_with_holographic_dashboard.png",
+      "packaged_path": "assets/agents/operations-manager/02-cute-cyan-robot-with-holographic-dashboard.png",
+      "sha256": "8add82da15c9a31a6dfae770c1f67e882002651e202cb9c5cf5786696a7abdb1",
+      "bytes": 1529890,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 2,
+      "agent_slug": "operations-manager",
+      "agent_name": "Operations Manager",
+      "role": "Business operations and execution",
+      "color_group": "02_Cyan_Blue",
+      "intended_use": "primary",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/02_Cyan_Blue/03_friendly_cyan_robot_mascot.png",
+      "packaged_path": "assets/agents/operations-manager/03-friendly-cyan-robot-mascot.png",
+      "sha256": "60e4427e621cb30d4f3f9c776ed3d3016e34857a1b2e25496b571748890561ab",
+      "bytes": 1441080,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 2,
+      "agent_slug": "operations-manager",
+      "agent_name": "Operations Manager",
+      "role": "Business operations and execution",
+      "color_group": "02_Cyan_Blue",
+      "intended_use": "greeting",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/02_Cyan_Blue/04_friendly_neon_robot_mascot.png",
+      "packaged_path": "assets/agents/operations-manager/04-friendly-neon-robot-mascot.png",
+      "sha256": "7fa77b84fc026e8613582cce7dcf74f1f0d6b921cc42a1bb1dcb2829fb4baf4c",
+      "bytes": 1358100,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 2,
+      "agent_slug": "operations-manager",
+      "agent_name": "Operations Manager",
+      "role": "Business operations and execution",
+      "color_group": "02_Cyan_Blue",
+      "intended_use": "success",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/02_Cyan_Blue/05_glossy_cyan_robot_thumbs_up.png",
+      "packaged_path": "assets/agents/operations-manager/05-glossy-cyan-robot-thumbs-up.png",
+      "sha256": "3ea775fd5881f32e63a415adc2cdbcc62740641d3cbfe824874fc460da88a21f",
+      "bytes": 1345242,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 2,
+      "agent_slug": "operations-manager",
+      "agent_name": "Operations Manager",
+      "role": "Business operations and execution",
+      "color_group": "02_Cyan_Blue",
+      "intended_use": "portrait",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/02_Cyan_Blue/06_heroic_neon_cyan_robot_mascot.png",
+      "packaged_path": "assets/agents/operations-manager/06-heroic-neon-cyan-robot-mascot.png",
+      "sha256": "65127808d10612fb35cf8aad053a1c47dbaa21b4601c7708329ecaa36b3f4e26",
+      "bytes": 1238789,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 5,
+      "agent_slug": "outbound-manager",
+      "agent_name": "Outbound Manager",
+      "role": "Prospecting, outreach, and authorized follow-up",
+      "color_group": "05_Crimson_Red",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/05_Crimson_Red/01_crimson_hovering_robot_mascot.png",
+      "packaged_path": "assets/agents/outbound-manager/01-crimson-hovering-robot-mascot.png",
+      "sha256": "fabe4ff7fc8823b722f2338769e87c671356e01999f8bae04c64ff51c152e7f6",
+      "bytes": 1781931,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 5,
+      "agent_slug": "outbound-manager",
+      "agent_name": "Outbound Manager",
+      "role": "Prospecting, outreach, and authorized follow-up",
+      "color_group": "05_Crimson_Red",
+      "intended_use": "working",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/05_Crimson_Red/02_crimson_robot_analyzing_holographic_dashboard.png",
+      "packaged_path": "assets/agents/outbound-manager/02-crimson-robot-analyzing-holographic-dashboard.png",
+      "sha256": "bf94dc594f5f9b488cdb6804f2a76ca4c03019bacb6adfd8d3fcd3947e02f3ac",
+      "bytes": 1893908,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 5,
+      "agent_slug": "outbound-manager",
+      "agent_name": "Outbound Manager",
+      "role": "Prospecting, outreach, and authorized follow-up",
+      "color_group": "05_Crimson_Red",
+      "intended_use": "primary",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/05_Crimson_Red/03_crimson_wink_robot_portrait.png",
+      "packaged_path": "assets/agents/outbound-manager/03-crimson-wink-robot-portrait.png",
+      "sha256": "0cfa26b6869525958bba68f3b76b6856259c574c4b00014b8ced60549d31f0d0",
+      "bytes": 1737208,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 5,
+      "agent_slug": "outbound-manager",
+      "agent_name": "Outbound Manager",
+      "role": "Prospecting, outreach, and authorized follow-up",
+      "color_group": "05_Crimson_Red",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/05_Crimson_Red/04_glossy_crimson_robot_mascot.png",
+      "packaged_path": "assets/agents/outbound-manager/04-glossy-crimson-robot-mascot.png",
+      "sha256": "1cef9b59a5f223c2d5f01439324160073863056233d0c33bd450afaee6377189",
+      "bytes": 1825404,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 5,
+      "agent_slug": "outbound-manager",
+      "agent_name": "Outbound Manager",
+      "role": "Prospecting, outreach, and authorized follow-up",
+      "color_group": "05_Crimson_Red",
+      "intended_use": "success",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/05_Crimson_Red/05_glossy_crimson_robot_thumbs_up.png",
+      "packaged_path": "assets/agents/outbound-manager/05-glossy-crimson-robot-thumbs-up.png",
+      "sha256": "ac1f8bda1306d5769caa9207e74ec762b24be4c7ca7fb821a6911fb553afc18a",
+      "bytes": 1861838,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 5,
+      "agent_slug": "outbound-manager",
+      "agent_name": "Outbound Manager",
+      "role": "Prospecting, outreach, and authorized follow-up",
+      "color_group": "05_Crimson_Red",
+      "intended_use": "greeting",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/05_Crimson_Red/06_glossy_crimson_robot_waving.png",
+      "packaged_path": "assets/agents/outbound-manager/06-glossy-crimson-robot-waving.png",
+      "sha256": "2f8a78416c368bd302d34b2b5bfe5150754c2a7c22f3a69e4bce37fd23141f6e",
+      "bytes": 1788265,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 5,
+      "agent_slug": "outbound-manager",
+      "agent_name": "Outbound Manager",
+      "role": "Prospecting, outreach, and authorized follow-up",
+      "color_group": "05_Crimson_Red",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/05_Crimson_Red/07_glossy_red_robot_mascot_waving.png",
+      "packaged_path": "assets/agents/outbound-manager/07-glossy-red-robot-mascot-waving.png",
+      "sha256": "409f114d58c21c936640701651ff807b61afbacbdf3e11917f6bb2ce7ad6c656",
+      "bytes": 1837621,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 5,
+      "agent_slug": "outbound-manager",
+      "agent_name": "Outbound Manager",
+      "role": "Prospecting, outreach, and authorized follow-up",
+      "color_group": "05_Crimson_Red",
+      "intended_use": "portrait",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/05_Crimson_Red/08_welcoming_crimson_robot_mascot.png",
+      "packaged_path": "assets/agents/outbound-manager/08-welcoming-crimson-robot-mascot.png",
+      "sha256": "bd9408bb81487cdce64b2aa3ba4c2cb2069e023dc2197f10577877a61f727a11",
+      "bytes": 1842803,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 4,
+      "agent_slug": "sales-manager",
+      "agent_name": "Sales Manager",
+      "role": "Pipeline, proposals, opportunities, and sales performance",
+      "color_group": "04_Purple_Violet",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/04_Purple_Violet/01_cheerful_purple_robot_mascot_pose.png",
+      "packaged_path": "assets/agents/sales-manager/01-cheerful-purple-robot-mascot-pose.png",
+      "sha256": "bee087c87e317e5333bf0a50fee2b2515e808e438a982337500e977199110b8b",
+      "bytes": 1289922,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 4,
+      "agent_slug": "sales-manager",
+      "agent_name": "Sales Manager",
+      "role": "Pipeline, proposals, opportunities, and sales performance",
+      "color_group": "04_Purple_Violet",
+      "intended_use": "portrait",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/04_Purple_Violet/02_friendly_purple_ai_assistant_robot.png",
+      "packaged_path": "assets/agents/sales-manager/02-friendly-purple-ai-assistant-robot.png",
+      "sha256": "5705c3bb159ecd3e642c7eea04c06f5f54e196ef918621c4397140be34cfc91b",
+      "bytes": 1712013,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 4,
+      "agent_slug": "sales-manager",
+      "agent_name": "Sales Manager",
+      "role": "Pipeline, proposals, opportunities, and sales performance",
+      "color_group": "04_Purple_Violet",
+      "intended_use": "working",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/04_Purple_Violet/03_friendly_purple_robot_analytics_dashboard.png",
+      "packaged_path": "assets/agents/sales-manager/03-friendly-purple-robot-analytics-dashboard.png",
+      "sha256": "7419bd7d28835ab250390633a48596fcc1e0c260b18ba1f9bf2153dbcd3025ab",
+      "bytes": 1647120,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 4,
+      "agent_slug": "sales-manager",
+      "agent_name": "Sales Manager",
+      "role": "Pipeline, proposals, opportunities, and sales performance",
+      "color_group": "04_Purple_Violet",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/04_Purple_Violet/04_friendly_purple_robot_mascot.png",
+      "packaged_path": "assets/agents/sales-manager/04-friendly-purple-robot-mascot.png",
+      "sha256": "56d55fcb75a0fa264f3141e912bbc8694662f91e73032e50d2a49c0064f7b58b",
+      "bytes": 1541122,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 4,
+      "agent_slug": "sales-manager",
+      "agent_name": "Sales Manager",
+      "role": "Pipeline, proposals, opportunities, and sales performance",
+      "color_group": "04_Purple_Violet",
+      "intended_use": "alternate",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/04_Purple_Violet/05_glossy_purple_robot_greeting.png",
+      "packaged_path": "assets/agents/sales-manager/05-glossy-purple-robot-greeting.png",
+      "sha256": "00fe5029eb39299c0edd9edaf04d99ba189d56598a927b71df61e65aef2c7e19",
+      "bytes": 1464382,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 4,
+      "agent_slug": "sales-manager",
+      "agent_name": "Sales Manager",
+      "role": "Pipeline, proposals, opportunities, and sales performance",
+      "color_group": "04_Purple_Violet",
+      "intended_use": "success",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/04_Purple_Violet/06_glossy_purple_robot_mascot_thumbs_up.png",
+      "packaged_path": "assets/agents/sales-manager/06-glossy-purple-robot-mascot-thumbs-up.png",
+      "sha256": "ef1badc4d75d02cde9f272c2628b850aa617b16c918b7dc739b03414638df2ea",
+      "bytes": 1578826,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 4,
+      "agent_slug": "sales-manager",
+      "agent_name": "Sales Manager",
+      "role": "Pipeline, proposals, opportunities, and sales performance",
+      "color_group": "04_Purple_Violet",
+      "intended_use": "greeting",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/04_Purple_Violet/07_glossy_purple_robot_mascot_waving.png",
+      "packaged_path": "assets/agents/sales-manager/07-glossy-purple-robot-mascot-waving.png",
+      "sha256": "8533dac70c96e1b27c9953a28341e7c5d2735f43058aaf2488350d620c2671ab",
+      "bytes": 1429810,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 4,
+      "agent_slug": "sales-manager",
+      "agent_name": "Sales Manager",
+      "role": "Pipeline, proposals, opportunities, and sales performance",
+      "color_group": "04_Purple_Violet",
+      "intended_use": "primary",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/04_Purple_Violet/08_glossy_purple_robot_portrait.png",
+      "packaged_path": "assets/agents/sales-manager/08-glossy-purple-robot-portrait.png",
+      "sha256": "4f5334ada84e7911f5e7f26408376bb0d1a1fcfa421366549423346803515ec9",
+      "bytes": 1561572,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 9,
+      "agent_slug": "technology-manager",
+      "agent_name": "Technology Manager",
+      "role": "Integrations, technical tasks, and computer operations",
+      "color_group": "09_Teal",
+      "intended_use": "portrait",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/09_Teal/01_cheerful_teal_robot_mascot_wave.png",
+      "packaged_path": "assets/agents/technology-manager/01-cheerful-teal-robot-mascot-wave.png",
+      "sha256": "09d9bc91052294e14a9f4b1b1ee37fb0064ac02b29673ca9654803b0924af918",
+      "bytes": 1364975,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 9,
+      "agent_slug": "technology-manager",
+      "agent_name": "Technology Manager",
+      "role": "Integrations, technical tasks, and computer operations",
+      "color_group": "09_Teal",
+      "intended_use": "greeting",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/09_Teal/02_friendly_teal_robot_mascot_waving.png",
+      "packaged_path": "assets/agents/technology-manager/02-friendly-teal-robot-mascot-waving.png",
+      "sha256": "f5927e48cc743652d9279c7ed126b88a1dff5c5ddf646e6ce42fa68265351658",
+      "bytes": 1293142,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 9,
+      "agent_slug": "technology-manager",
+      "agent_name": "Technology Manager",
+      "role": "Integrations, technical tasks, and computer operations",
+      "color_group": "09_Teal",
+      "intended_use": "working",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/09_Teal/03_futuristic_robot_analytics_mascot.png",
+      "packaged_path": "assets/agents/technology-manager/03-futuristic-robot-analytics-mascot.png",
+      "sha256": "a853ce9ad7e482bd51657df505f1982c989d0da9cc86f47ec9711bd3ca05a9ca",
+      "bytes": 1439703,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 9,
+      "agent_slug": "technology-manager",
+      "agent_name": "Technology Manager",
+      "role": "Integrations, technical tasks, and computer operations",
+      "color_group": "09_Teal",
+      "intended_use": "primary",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/09_Teal/04_glossy_teal_robot_mascot_with_crescent_eyes.png",
+      "packaged_path": "assets/agents/technology-manager/04-glossy-teal-robot-mascot-with-crescent-eyes.png",
+      "sha256": "86a6cf28b8276837acee204bd2608e561b33ab4e0c6c63c013cd0c255afb2dfb",
+      "bytes": 1704171,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 9,
+      "agent_slug": "technology-manager",
+      "agent_name": "Technology Manager",
+      "role": "Integrations, technical tasks, and computer operations",
+      "color_group": "09_Teal",
+      "intended_use": "success",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/09_Teal/05_glossy_teal_robot_thumbs_up.png",
+      "packaged_path": "assets/agents/technology-manager/05-glossy-teal-robot-thumbs-up.png",
+      "sha256": "008db0cf4577267fdf728066c4ae8950fa67b582277fafcaad8e64a4f734e52c",
+      "bytes": 1404406,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 10,
+      "agent_slug": "tender-bid-manager",
+      "agent_name": "Tender & Bid Manager",
+      "role": "Tender discovery, eligibility, preparation, and deadlines",
+      "color_group": "10_Silver_Graphite",
+      "intended_use": "portrait",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/10_Silver_Graphite/01_friendly_futuristic_robot_mascot.png",
+      "packaged_path": "assets/agents/tender-bid-manager/01-friendly-futuristic-robot-mascot.png",
+      "sha256": "4229457e130b3ec097f71b4c3c52eabbaea54286891493eb97d8c6605922f670",
+      "bytes": 2063834,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 10,
+      "agent_slug": "tender-bid-manager",
+      "agent_name": "Tender & Bid Manager",
+      "role": "Tender discovery, eligibility, preparation, and deadlines",
+      "color_group": "10_Silver_Graphite",
+      "intended_use": "success",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/10_Silver_Graphite/02_friendly_futuristic_robot_thumbs_up.png",
+      "packaged_path": "assets/agents/tender-bid-manager/02-friendly-futuristic-robot-thumbs-up.png",
+      "sha256": "0a9fe9d99a551592cd109cbaf80587e5f95c724fc357d09365435235a4bc1132",
+      "bytes": 1420840,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 10,
+      "agent_slug": "tender-bid-manager",
+      "agent_name": "Tender & Bid Manager",
+      "role": "Tender discovery, eligibility, preparation, and deadlines",
+      "color_group": "10_Silver_Graphite",
+      "intended_use": "greeting",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/10_Silver_Graphite/03_friendly_futuristic_robot_waving.png",
+      "packaged_path": "assets/agents/tender-bid-manager/03-friendly-futuristic-robot-waving.png",
+      "sha256": "0f5d38f505c1c846b5230d4bbfa20c0e8c4bd32ae6af799e8df7771f85a7dac0",
+      "bytes": 1307251,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 10,
+      "agent_slug": "tender-bid-manager",
+      "agent_name": "Tender & Bid Manager",
+      "role": "Tender discovery, eligibility, preparation, and deadlines",
+      "color_group": "10_Silver_Graphite",
+      "intended_use": "working",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/10_Silver_Graphite/04_friendly_robot_analytics_dashboard.png",
+      "packaged_path": "assets/agents/tender-bid-manager/04-friendly-robot-analytics-dashboard.png",
+      "sha256": "c9bf5108d92a98ac489f47bc58db202936634914ae793b18c554467c4b723a01",
+      "bytes": 1509139,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "agent_avatar",
+      "agent_order": 10,
+      "agent_slug": "tender-bid-manager",
+      "agent_name": "Tender & Bid Manager",
+      "role": "Tender discovery, eligibility, preparation, and deadlines",
+      "color_group": "10_Silver_Graphite",
+      "intended_use": "primary",
+      "source_archive": "BUILD_BOT_ALL_11_COLOR_GROUPS_ROBOT_IMAGES (1).zip",
+      "source_path": "BUILD_BOT_11_GROUPS/10_Silver_Graphite/05_futuristic_friendly_robot_portrait.png",
+      "packaged_path": "assets/agents/tender-bid-manager/05-futuristic-friendly-robot-portrait.png",
+      "sha256": "6ba6c60139269813c926adb1f1c0dc156b23afd43725b08c311e999eada4c555",
+      "bytes": 1835282,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "brand",
+      "source_archive": "BUILD_BOT_Complete_Design_Kit.zip",
+      "source_path": "BUILD_BOT_Complete_Design_Kit/02_Official_Brand/App_Icons/BUILD_BOT_App_Icon_Dark_1024.png",
+      "packaged_path": "assets/brand/app-icon-dark.png",
+      "sha256": "8824e7781de6395a86ba82297a0df9ce593648254474a6b378b7e450fd2daa2e",
+      "bytes": 625584,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "brand",
+      "source_archive": "BUILD_BOT_Complete_Design_Kit.zip",
+      "source_path": "BUILD_BOT_Complete_Design_Kit/02_Official_Brand/App_Icons/BUILD_BOT_App_Icon_Light_1024.png",
+      "packaged_path": "assets/brand/app-icon-light.png",
+      "sha256": "05fe0c133e5cf2fb4d30a42a858fa20f38d4462526bd8212194b05a48eb2a79d",
+      "bytes": 721864,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "brand",
+      "source_archive": "BUILD_BOT_Complete_Design_Kit.zip",
+      "source_path": "BUILD_BOT_Complete_Design_Kit/02_Official_Brand/Logo_Lockups/BUILD_BOT_Horizontal_Dark.png",
+      "packaged_path": "assets/brand/official-logo-dark.png",
+      "sha256": "0c1a3f089040e905dd8d713a86ee7b951caeca633955e917128e7a95f8db9b08",
+      "bytes": 214314,
+      "dimensions": [
+        2100,
+        500
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "brand",
+      "source_archive": "BUILD_BOT_Complete_Design_Kit.zip",
+      "source_path": "BUILD_BOT_Complete_Design_Kit/02_Official_Brand/Logo_Lockups/BUILD_BOT_Horizontal_Light.png",
+      "packaged_path": "assets/brand/official-logo-light.png",
+      "sha256": "f386d1df92d4b699ebe7fc0fc95ee11fd562f9e9c09b6c1f6396f774bd4824f8",
+      "bytes": 218016,
+      "dimensions": [
+        2100,
+        500
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "brand",
+      "source_archive": "BUILD_BOT_Complete_Design_Kit.zip",
+      "source_path": "BUILD_BOT_Complete_Design_Kit/02_Official_Brand/Source_Assets/BUILD_BOT_Official_Robot_Black.png",
+      "packaged_path": "assets/brand/official-robot-black.png",
+      "sha256": "9f572a7d82b0eaa5b536b28ebfa48242d25b4def8c29599fa6d34dfa28a52a50",
+      "bytes": 946882,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "brand",
+      "source_archive": "BUILD_BOT_Complete_Design_Kit.zip",
+      "source_path": "BUILD_BOT_Complete_Design_Kit/02_Official_Brand/Source_Assets/BUILD_BOT_Wordmark_Black_Transparent.png",
+      "packaged_path": "assets/brand/official-wordmark-black.png",
+      "sha256": "7ea148762e04e9d397e6eff6fd894b04ecf5ec235435b55e61f26f4d7080795a",
+      "bytes": 13989,
+      "dimensions": [
+        578,
+        93
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "kind": "brand",
+      "source_archive": "BUILD_BOT_Complete_Design_Kit.zip",
+      "source_path": "BUILD_BOT_Complete_Design_Kit/02_Official_Brand/Source_Assets/BUILD_BOT_Official_Wordmark_White_On_Black.png",
+      "packaged_path": "assets/brand/official-wordmark-white-on-black.png",
+      "sha256": "d5f52fd0f12a095d7d9416d43e044ab7dbc54140a8eedf8799d8f327cc4f02e3",
+      "bytes": 65207,
+      "dimensions": [
+        578,
+        93
+      ],
+      "mode": "RGB"
+    },
+    {
+      "kind": "brand",
+      "source_archive": "BUILD_BOT_Complete_Design_Kit.zip",
+      "source_path": "BUILD_BOT_Complete_Design_Kit/02_Official_Brand/Source_Assets/BUILD_BOT_Wordmark_White_Transparent.png",
+      "packaged_path": "assets/brand/official-wordmark-white.png",
+      "sha256": "c2255033ddd31c6cf1716b6791701bc56a86b3f583fe7d5a8cbd5d0167a0bbca",
+      "bytes": 14879,
+      "dimensions": [
+        578,
+        93
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "kind": "product_reference_pdf",
+      "source_file": "BUILD_Pitch_Deck_MANCOSA_Hackathon_2026_compressed.pdf",
+      "packaged_path": "reference/build-growth/BUILD_Pitch_Deck_MANCOSA_Hackathon_2026_compressed.pdf",
+      "sha256": "cd70c87f81f8e786f6dbf87ddd9ef8f8a666b6bb12854ea3c2b2d734843b78d8",
+      "bytes": 4151321,
+      "pages": 22,
+      "purpose": "BUILD GROWTH product context; not implementation evidence"
+    },
+    {
+      "kind": "third_party_ui_reference",
+      "source_file": "1786889381857.png",
+      "packaged_path": "reference/grok-bot-ui/1786889381857.png",
+      "sha256": "791c948c263038f8c60b61639e2ae3d140b5d71b7b78885e3be3db819e73a613",
+      "bytes": 395959,
+      "dimensions": [
+        1280,
+        719
+      ],
+      "mode": "RGB",
+      "purpose": "Grok Bot observable layout and interaction reference; do not reuse third-party branding"
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "01_CHIEF_CHAT_Desktop_1440x900_Dark.png",
+      "packaged_path": "reference/ui-mockups/desktop/01_CHIEF_CHAT_Desktop_1440x900_Dark.png",
+      "sha256": "552fef7d26c07266732340ef9f28622e0b725af1db2090a3a5f648c7b1395a65",
+      "bytes": 61516
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "01_CHIEF_CHAT_Desktop_1440x900_Light.png",
+      "packaged_path": "reference/ui-mockups/desktop/01_CHIEF_CHAT_Desktop_1440x900_Light.png",
+      "sha256": "2ba4e22eac4c6cc74470170d9786408911b761ebc1c38c015cd6b51c17554e2a",
+      "bytes": 60872
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "02_AI_WORKFORCE_Desktop_1440x900_Dark.png",
+      "packaged_path": "reference/ui-mockups/desktop/02_AI_WORKFORCE_Desktop_1440x900_Dark.png",
+      "sha256": "4e046fed15a4de86f72cb1106430e8bda4f92b1aad3fcffc80162c1e884f008b",
+      "bytes": 67170
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "02_AI_WORKFORCE_Desktop_1440x900_Light.png",
+      "packaged_path": "reference/ui-mockups/desktop/02_AI_WORKFORCE_Desktop_1440x900_Light.png",
+      "sha256": "4e0ffd0c5100d486e23843709d1a6e6844ccf1218ba895f5696ba520fa822224",
+      "bytes": 66347
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "03_BOT_CONVERSATIONS_Desktop_1440x900_Dark.png",
+      "packaged_path": "reference/ui-mockups/desktop/03_BOT_CONVERSATIONS_Desktop_1440x900_Dark.png",
+      "sha256": "8760cc34ec516e7937b802c7244b0183e15b39b722087518bfa226b1f5e9c4e4",
+      "bytes": 51339
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "03_BOT_CONVERSATIONS_Desktop_1440x900_Light.png",
+      "packaged_path": "reference/ui-mockups/desktop/03_BOT_CONVERSATIONS_Desktop_1440x900_Light.png",
+      "sha256": "6379c7433e40f4848f555989259a17f1f810de4e3dafed54a495158ce7e690fe",
+      "bytes": 50529
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "04_GROUP_CHATS_Desktop_1440x900_Dark.png",
+      "packaged_path": "reference/ui-mockups/desktop/04_GROUP_CHATS_Desktop_1440x900_Dark.png",
+      "sha256": "8959c8ffa29f78ef1376689aa67271a443e421c0b3cbf591ada66c7dc36e82a9",
+      "bytes": 53298
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "04_GROUP_CHATS_Desktop_1440x900_Light.png",
+      "packaged_path": "reference/ui-mockups/desktop/04_GROUP_CHATS_Desktop_1440x900_Light.png",
+      "sha256": "2ece5aaa170a4f6f7f14f86b458edac492bfb936e13044d35fa52e89a38c5015",
+      "bytes": 52609
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "05_CLOUD_COMPUTER_Desktop_1440x900_Dark.png",
+      "packaged_path": "reference/ui-mockups/desktop/05_CLOUD_COMPUTER_Desktop_1440x900_Dark.png",
+      "sha256": "d53f2a4a4ea7b39c7fb29b4251ead5b341248a9f4d196dbf0e1cd1929871bf43",
+      "bytes": 56817
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "05_CLOUD_COMPUTER_Desktop_1440x900_Light.png",
+      "packaged_path": "reference/ui-mockups/desktop/05_CLOUD_COMPUTER_Desktop_1440x900_Light.png",
+      "sha256": "583cd095aeca4eeb2f673d8c0904e9a228be6d6b323e10f44ad707e89ca3e5c2",
+      "bytes": 55959
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "06_MISSIONS_AND_ROUTINES_Desktop_1440x900_Dark.png",
+      "packaged_path": "reference/ui-mockups/desktop/06_MISSIONS_AND_ROUTINES_Desktop_1440x900_Dark.png",
+      "sha256": "54d7d64cbc796ab33ce5218898c595c97e356ae16a78720b615775e3ec0f6d29",
+      "bytes": 57618
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "06_MISSIONS_AND_ROUTINES_Desktop_1440x900_Light.png",
+      "packaged_path": "reference/ui-mockups/desktop/06_MISSIONS_AND_ROUTINES_Desktop_1440x900_Light.png",
+      "sha256": "99358220cdcb19200fcd83667d08bdc6c85cb705f1b63bc83bb81a1d5e4619f8",
+      "bytes": 56675
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "07_APPROVALS_Desktop_1440x900_Dark.png",
+      "packaged_path": "reference/ui-mockups/desktop/07_APPROVALS_Desktop_1440x900_Dark.png",
+      "sha256": "b3d9babf40137b7052037ae8d95061943ad5f22541151acee560658d011e535f",
+      "bytes": 56597
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "07_APPROVALS_Desktop_1440x900_Light.png",
+      "packaged_path": "reference/ui-mockups/desktop/07_APPROVALS_Desktop_1440x900_Light.png",
+      "sha256": "8346858e6a1dd2119d074002ec1d06bfb8a3fabea539d9476eb2d6011a7d9fc7",
+      "bytes": 55772
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "08_ACTIVITY_Desktop_1440x900_Dark.png",
+      "packaged_path": "reference/ui-mockups/desktop/08_ACTIVITY_Desktop_1440x900_Dark.png",
+      "sha256": "ab638ac0b3585cafb8545a23a99b854df5dfc4f6828a3d1181e167e14cee72b6",
+      "bytes": 55646
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "08_ACTIVITY_Desktop_1440x900_Light.png",
+      "packaged_path": "reference/ui-mockups/desktop/08_ACTIVITY_Desktop_1440x900_Light.png",
+      "sha256": "82de111b0b7e264eb30ecc4f8d300c5ad3fa645eb8142f5d787dc105b5501854",
+      "bytes": 54990
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "09_REPORTS_Desktop_1440x900_Dark.png",
+      "packaged_path": "reference/ui-mockups/desktop/09_REPORTS_Desktop_1440x900_Dark.png",
+      "sha256": "39baddb027fede19a6eb39480f6482859621e32dd17283a200f4d7e4842a5cf8",
+      "bytes": 56748
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "09_REPORTS_Desktop_1440x900_Light.png",
+      "packaged_path": "reference/ui-mockups/desktop/09_REPORTS_Desktop_1440x900_Light.png",
+      "sha256": "fb5eabf99b88b4767276f1a0e65a387a1b66ffcbb50a4c23430864868273257b",
+      "bytes": 56115
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "10_BOT_CONFIGURATION_Desktop_1440x900_Dark.png",
+      "packaged_path": "reference/ui-mockups/desktop/10_BOT_CONFIGURATION_Desktop_1440x900_Dark.png",
+      "sha256": "d40baf470c4752cc392721b62ee4b022b4dca710e9d001aa0b18ac8dc7d14abf",
+      "bytes": 56052
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "10_BOT_CONFIGURATION_Desktop_1440x900_Light.png",
+      "packaged_path": "reference/ui-mockups/desktop/10_BOT_CONFIGURATION_Desktop_1440x900_Light.png",
+      "sha256": "272ac76777c7b4d6a50e93def3a2601e42dcfc51477b306ee3b3259ce50d0c66",
+      "bytes": 55292
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "11_SETTINGS_Desktop_1440x900_Dark.png",
+      "packaged_path": "reference/ui-mockups/desktop/11_SETTINGS_Desktop_1440x900_Dark.png",
+      "sha256": "b1d03709eb24356d4487fdbf69598c802d97ace0b1726cd498e149d47eb11ad4",
+      "bytes": 60941
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "11_SETTINGS_Desktop_1440x900_Light.png",
+      "packaged_path": "reference/ui-mockups/desktop/11_SETTINGS_Desktop_1440x900_Light.png",
+      "sha256": "4bbc39c7c8d000010f142b794a5331e0959ca36e88255819d144e8b56ed94f13",
+      "bytes": 59919
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "01_CHIEF_CHAT_Mobile_390x844_Dark.png",
+      "packaged_path": "reference/ui-mockups/mobile/01_CHIEF_CHAT_Mobile_390x844_Dark.png",
+      "sha256": "a1865dde7ab70ad43e265e99fb73f664ac4307cba77101e1b2ecf3f14cc09d03",
+      "bytes": 29340
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "01_CHIEF_CHAT_Mobile_390x844_Light.png",
+      "packaged_path": "reference/ui-mockups/mobile/01_CHIEF_CHAT_Mobile_390x844_Light.png",
+      "sha256": "1762c7bd757575153200b8471062592ee744a0e90c133e7fb1170ae51425ea73",
+      "bytes": 29393
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "02_AI_WORKFORCE_Mobile_390x844_Dark.png",
+      "packaged_path": "reference/ui-mockups/mobile/02_AI_WORKFORCE_Mobile_390x844_Dark.png",
+      "sha256": "725ce616938ec6f56ce142f0968387b6d3068004871c7ba438d58619761706ae",
+      "bytes": 28350
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "02_AI_WORKFORCE_Mobile_390x844_Light.png",
+      "packaged_path": "reference/ui-mockups/mobile/02_AI_WORKFORCE_Mobile_390x844_Light.png",
+      "sha256": "6a81d8b74f5abda118fa8b4545bc7ba0dc1bbe862586a00d8c44d6a8615bf959",
+      "bytes": 28096
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "03_BOT_CONVERSATIONS_Mobile_390x844_Dark.png",
+      "packaged_path": "reference/ui-mockups/mobile/03_BOT_CONVERSATIONS_Mobile_390x844_Dark.png",
+      "sha256": "085684cf56fb67d67accd15ce598cae1db1680c8ef553674101f8a307a1ffe60",
+      "bytes": 23122
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "03_BOT_CONVERSATIONS_Mobile_390x844_Light.png",
+      "packaged_path": "reference/ui-mockups/mobile/03_BOT_CONVERSATIONS_Mobile_390x844_Light.png",
+      "sha256": "a1611432c8885376fbc21a769b29e44fd48cc2035c63223e9d2eeb813edd3301",
+      "bytes": 22850
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "04_GROUP_CHATS_Mobile_390x844_Dark.png",
+      "packaged_path": "reference/ui-mockups/mobile/04_GROUP_CHATS_Mobile_390x844_Dark.png",
+      "sha256": "d338f7adaae33e44c5395d558f5aa16fc42e3ddd81fb311cd05304bdb100ed1c",
+      "bytes": 24579
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "04_GROUP_CHATS_Mobile_390x844_Light.png",
+      "packaged_path": "reference/ui-mockups/mobile/04_GROUP_CHATS_Mobile_390x844_Light.png",
+      "sha256": "acddb946a46ce33b65a025e9d4e842063cbf4e5337c63cee0a82cc1295e575f1",
+      "bytes": 24418
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "05_CLOUD_COMPUTER_Mobile_390x844_Dark.png",
+      "packaged_path": "reference/ui-mockups/mobile/05_CLOUD_COMPUTER_Mobile_390x844_Dark.png",
+      "sha256": "ddb94644ef014f40dacdcfd1288464ed19a29dd8241d58ac2b870760fad3593f",
+      "bytes": 27610
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "05_CLOUD_COMPUTER_Mobile_390x844_Light.png",
+      "packaged_path": "reference/ui-mockups/mobile/05_CLOUD_COMPUTER_Mobile_390x844_Light.png",
+      "sha256": "380dd2b1a7953ac81a672a105b9af9d1281dfa0add048a98f7d8452d4a1a29f3",
+      "bytes": 27434
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "06_MISSIONS_AND_ROUTINES_Mobile_390x844_Dark.png",
+      "packaged_path": "reference/ui-mockups/mobile/06_MISSIONS_AND_ROUTINES_Mobile_390x844_Dark.png",
+      "sha256": "d1e84037db65796a80ba6655a1f513b5e252d61fccd558b16cf08fcc22293158",
+      "bytes": 28568
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "06_MISSIONS_AND_ROUTINES_Mobile_390x844_Light.png",
+      "packaged_path": "reference/ui-mockups/mobile/06_MISSIONS_AND_ROUTINES_Mobile_390x844_Light.png",
+      "sha256": "04da9568b1099a3446c0c962963bc5882485898bd92ebda0f660d05a274ed2db",
+      "bytes": 28042
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "07_APPROVALS_Mobile_390x844_Dark.png",
+      "packaged_path": "reference/ui-mockups/mobile/07_APPROVALS_Mobile_390x844_Dark.png",
+      "sha256": "ab63b9c538a31e8a75f37736c6f6ad33ff33805e4d1dd4d0168be59b2fabe44c",
+      "bytes": 28016
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "07_APPROVALS_Mobile_390x844_Light.png",
+      "packaged_path": "reference/ui-mockups/mobile/07_APPROVALS_Mobile_390x844_Light.png",
+      "sha256": "ec3b49524d5d2478fea471309b1bed4ca2ba0bd6bd16d38e20351757b8a6930a",
+      "bytes": 27596
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "08_ACTIVITY_Mobile_390x844_Dark.png",
+      "packaged_path": "reference/ui-mockups/mobile/08_ACTIVITY_Mobile_390x844_Dark.png",
+      "sha256": "579a1bb19ce372589a497a10e1b30ea296c43e7d6e4b1c0b164bb5f769c76fec",
+      "bytes": 26900
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "08_ACTIVITY_Mobile_390x844_Light.png",
+      "packaged_path": "reference/ui-mockups/mobile/08_ACTIVITY_Mobile_390x844_Light.png",
+      "sha256": "78a6e662c4c470e97126cbe4f2b21ce81944ea14823953ecc9576316abcb026c",
+      "bytes": 26458
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "09_REPORTS_Mobile_390x844_Dark.png",
+      "packaged_path": "reference/ui-mockups/mobile/09_REPORTS_Mobile_390x844_Dark.png",
+      "sha256": "17afa349a190cc359f0173aaf9a774f021401fd66cddfef4439358d0018919d4",
+      "bytes": 27437
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "09_REPORTS_Mobile_390x844_Light.png",
+      "packaged_path": "reference/ui-mockups/mobile/09_REPORTS_Mobile_390x844_Light.png",
+      "sha256": "f3cef85017b099093aea9ebf78430e2b0e3fe03e8481ea3c3e298ac798bc06ab",
+      "bytes": 27030
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "10_BOT_CONFIGURATION_Mobile_390x844_Dark.png",
+      "packaged_path": "reference/ui-mockups/mobile/10_BOT_CONFIGURATION_Mobile_390x844_Dark.png",
+      "sha256": "926a1ab1f86ddbdcb8774564d67c9b4ccaaf845bde2e6aabb5e338accc996eca",
+      "bytes": 26025
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "10_BOT_CONFIGURATION_Mobile_390x844_Light.png",
+      "packaged_path": "reference/ui-mockups/mobile/10_BOT_CONFIGURATION_Mobile_390x844_Light.png",
+      "sha256": "f46875bfe4da396341a88b6bf7680aebeae87d4ca22981b913573f4c6b54f889",
+      "bytes": 25833
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "11_SETTINGS_Mobile_390x844_Dark.png",
+      "packaged_path": "reference/ui-mockups/mobile/11_SETTINGS_Mobile_390x844_Dark.png",
+      "sha256": "bbd0c0fed1673912f033c709d008ec46e5f5a259e0bc49320b054e371d6b29f4",
+      "bytes": 30023
+    },
+    {
+      "kind": "ui_mockup",
+      "source_archive": "BUILD_BOT_44_Individual_UI_Images.zip",
+      "source_path": "11_SETTINGS_Mobile_390x844_Light.png",
+      "packaged_path": "reference/ui-mockups/mobile/11_SETTINGS_Mobile_390x844_Light.png",
+      "sha256": "5c3954cccf52940700559b81b7bdfe37004d853ce37f77f34cec07f4ff9020f8",
+      "bytes": 29524
+    }
+  ]
+}
