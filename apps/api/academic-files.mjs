@@ -88,11 +88,11 @@ export function extractAcademicText(name,buffer) {
   return text.trim();
 }
 
-export async function saveAcademicFile(db,{uploadRoot,organizationId,uploaderId,name,mimeType,base64,category='reference'}) {
+export async function saveAcademicFile(db,{uploadRoot,organizationId,uploaderId,name,mimeType,base64,bytes,category='reference'}) {
   const originalName=cleanName(name);
   if(!originalName||originalName==='.'||originalName==='..') throw new Error('Choose a valid file name.');
   let buffer;
-  try {buffer=Buffer.from(String(base64||''),'base64');} catch {throw new Error('The upload payload is invalid.');}
+  try {buffer=Buffer.isBuffer(bytes)?bytes:Buffer.from(String(base64||''),'base64');} catch {throw new Error('The upload payload is invalid.');}
   if(!buffer.length) throw new Error('Academic files cannot be empty.');
   const extension=extname(originalName).toLowerCase();
   const extractedText=extractAcademicText(originalName,buffer);

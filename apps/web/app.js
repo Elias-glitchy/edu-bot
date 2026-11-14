@@ -14,7 +14,6 @@ const time=value=>new Date(value).toLocaleString([], {month:'short',day:'numeric
 const avatar=slug=>`/assets/agents/${slug}.png`;
 const icon={chief:'✦',workforce:'▦',bots:'◇',conversations:'◉',missions:'▤',routines:'⏱',activity:'◷',approvals:'✓',reports:'▥',notifications:'♢',crm:'◎',settings:'⚙'};
 const labels={chief:'Chief',workforce:'AI Workforce',bots:'Bot chats',conversations:'Conversations',missions:'Missions',routines:'Routines',activity:'Activity',approvals:'Approvals',reports:'Reports',notifications:'Notifications',crm:'Local CRM',settings:'Settings'};
-const fileBase64=async file=>{const bytes=new Uint8Array(await file.arrayBuffer());let binary='';for(let offset=0;offset<bytes.length;offset+=0x8000)binary+=String.fromCharCode(...bytes.subarray(offset,offset+0x8000));return btoa(binary);};
 const pendingChatFiles=window.__pendingChatFiles||new Map();window.__pendingChatFiles=pendingChatFiles;
 const chatFileAccept='.pdf,.docx,.pptx,.xlsx,.zip,.txt,.md,.csv,.json,.png,.jpg,.jpeg,.webp,.gif';
 const formatBytes=value=>value<1024?`${value} B`:value<1024*1024?`${(value/1024).toFixed(1)} KB`:`${(value/(1024*1024)).toFixed(1)} MB`;
@@ -39,6 +38,13 @@ async function api(path,method='GET',payload) {
   const result=await response.json().catch(()=>({error:`Request failed (${response.status})`}));
   if(!response.ok) throw new Error(result.error||`Request failed (${response.status})`);
   return result;
+}
+async function uploadAcademicFile(file,category='reference'){
+  const query=new URLSearchParams({name:file.name,category});let response;
+  try{response=await fetch(`/api/academic-files?${query}`,{method:'POST',headers:{'Content-Type':file.type||'application/octet-stream'},body:file});}
+  catch{throw new Error('The upload connection was interrupted. Check that EDU BOT is online and try again.');}
+  const result=await response.json().catch(()=>({error:`Upload failed (${response.status})`}));
+  if(!response.ok)throw new Error(result.error||`Upload failed (${response.status})`);return result;
 }
 function flash(message){notice=message;render();setTimeout(()=>{notice='';render();},5000);}
 function openComputerFullscreen({viewUrl,name='Bot',computerId,canControl=false}){
@@ -349,7 +355,7 @@ app.addEventListener('submit',async e=>{
     const responder=String(textarea?.getAttribute('aria-label')||'').replace(/^Message\s+/,'').trim()||'Your AI colleague';
     const thinking=document.createElement('div');thinking.className='thread-message chat-pending bot-thinking';thinking.innerHTML='<div><p><span class="thinking-label">Thinking</span><span class="thinking-dots" aria-hidden="true"><i></i><i></i><i></i></span></p><small></small></div>';thinking.querySelector('small').textContent=`${responder} is reviewing your request`;
     if(thread){thread.append(optimistic,thinking);thread.scrollTop=thread.scrollHeight;}
-    try{for(const entry of attachments){if(!entry.fileId){const uploaded=await api('/academic-files','POST',{name:entry.file.name,mimeType:entry.file.type,category:'reference',base64:await fileBase64(entry.file)});entry.fileId=uploaded.fileId;}}const payload={message,fileIds:attachments.map(entry=>entry.fileId),...(groupId?{conversationId:groupId}:{})},result=await api(path,'POST',payload);if(result.navigateTo)view=result.navigateTo;if(textarea?.dataset.draftKey)localStorage.removeItem(textarea.dataset.draftKey);for(const entry of attachments)if(entry.previewUrl)URL.revokeObjectURL(entry.previewUrl);pendingChatFiles.delete(attachmentKey);await load();if(result.demoMissionId)flash('Live demo pack validated. CHIEF command centre is ready below.');}
+    try{for(const entry of attachments){if(!entry.fileId){const uploaded=await uploadAcademicFile(entry.file,'reference');entry.fileId=uploaded.fileId;}}const payload={message,fileIds:attachments.map(entry=>entry.fileId),...(groupId?{conversationId:groupId}:{})},result=await api(path,'POST',payload);if(result.navigateTo)view=result.navigateTo;if(textarea?.dataset.draftKey)localStorage.removeItem(textarea.dataset.draftKey);for(const entry of attachments)if(entry.previewUrl)URL.revokeObjectURL(entry.previewUrl);pendingChatFiles.delete(attachmentKey);await load();if(result.demoMissionId)flash('Live demo pack validated. CHIEF command centre is ready below.');}
     catch(err){optimistic.remove();thinking.remove();if(submit?.isConnected){submit.disabled=false;submit.textContent=submit.dataset.originalText||'➤';}if(textarea?.isConnected)textarea.disabled=false;flash(err.message);}return;
   }
   if(e.target.id==='group-form'){
@@ -372,7 +378,7 @@ app.addEventListener('submit',async e=>{
     try{
       const fileIds=formData.getAll('fileIds').map(String),uploads=[...formData.getAll('assignments').filter(file=>file instanceof File&&file.size).map(file=>[file,'assignment'])];
       const rubric=formData.get('rubric'),roster=formData.get('roster');if(rubric instanceof File&&rubric.size)uploads.push([rubric,'rubric']);if(roster instanceof File&&roster.size)uploads.push([roster,'roster']);
-      for(const [file,category] of uploads){const uploaded=await api('/academic-files','POST',{name:file.name,mimeType:file.type,category,base64:await fileBase64(file)});fileIds.push(uploaded.fileId);}
+      for(const [file,category] of uploads){const uploaded=await uploadAcademicFile(file,category);fileIds.push(uploaded.fileId);}
       await api('/education/missions','POST',{templateId:formData.get('templateId'),title:formData.get('title'),objective:formData.get('objective'),fileIds:[...new Set(fileIds)],demoQaInjection:formData.get('demoQaInjection')==='on'});await load();
     }catch(err){submit.disabled=false;submit.textContent='Upload and launch mission';flash(err.message);}return;
   }

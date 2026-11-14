@@ -16,7 +16,7 @@ test('chat attachments are stored, scoped, rendered in state and supplied to the
     const initial=(await call('/state','GET',undefined,cookie)).body,chief=initial.agents.find(agent=>agent.slug==='chief');
     await call(`/agents/${chief.id}/activate`,'POST',{},cookie);
     const largeBytes=Buffer.alloc(12_100_000,0x61);
-    const largeUpload=await call('/academic-files','POST',{name:'large-reference.md',mimeType:'text/markdown',category:'reference',base64:largeBytes.toString('base64')},cookie);
+    const largeResponse=await fetch(`${base}/academic-files?name=large-reference.md&category=reference`,{method:'POST',headers:{cookie,'content-type':'text/markdown'},body:largeBytes}),largeUpload={status:largeResponse.status,body:await largeResponse.json()};
     assert.equal(largeUpload.status,201);
     const largeRecord=app.db.prepare('SELECT size,extracted_text,metadata FROM academic_files WHERE id=?').get(largeUpload.body.fileId);
     assert.equal(largeRecord.size,largeBytes.length);

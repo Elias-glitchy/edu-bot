@@ -56,6 +56,11 @@ async function body(req) {
   for await (const chunk of req) raw+=chunk;
   try { return JSON.parse(raw||'{}'); } catch { throw new Error('Invalid JSON'); }
 }
+async function binaryBody(req) {
+  const chunks=[];
+  for await (const chunk of req) chunks.push(Buffer.from(chunk));
+  return Buffer.concat(chunks);
+}
 function account(db,req) {
   const cookie=req.headers.cookie?.match(/(?:^|;\s*)bb_colleague_zero_session=([^;]+)/)?.[1];
   if (!cookie) return null;
@@ -475,9 +480,10 @@ export function createApp({databasePath=resolve('data/build-bot-colleague-zero.s
           catch(error){if(error instanceof ComputerActionError)return fail(res,error.status,error.message);throw error;}
         }
         if(url.pathname==='/api/academic-files' && req.method==='POST') {
-          const b=await body(req),category=String(b.category||'reference');
+          const binary=!String(req.headers['content-type']||'').toLowerCase().includes('application/json');
+          const b=binary?{name:url.searchParams.get('name'),mimeType:req.headers['content-type'],category:url.searchParams.get('category'),bytes:await binaryBody(req)}:await body(req),category=String(b.category||'reference');
           if(!['assignment','rubric','roster','curriculum','reference'].includes(category))return fail(res,400,'Invalid academic file category.');
-          try {const result=await saveAcademicFile(db,{uploadRoot,organizationId:me.organization_id,uploaderId:me.user_id,name:b.name,mimeType:b.mimeType,base64:b.base64,category});event(db,me.organization_id,null,me.email,'academic_file.uploaded',`${category} file stored with validated extraction.`);return json(res,201,result);}
+          try {const result=await saveAcademicFile(db,{uploadRoot,organizationId:me.organization_id,uploaderId:me.user_id,name:b.name,mimeType:b.mimeType,base64:b.base64,bytes:b.bytes,category});event(db,me.organization_id,null,me.email,'academic_file.uploaded',`${category} file stored with validated extraction.`);return json(res,201,result);}
           catch(error){return fail(res,400,error.message);}
         }
         const academicDownload=url.pathname.match(/^\/api\/academic-files\/([0-9a-f-]+)\/download$/);
