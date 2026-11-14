@@ -85,6 +85,15 @@ export function createApp({databasePath=resolve('data/build-bot-colleague-zero.s
   const ai=getAiProvider(aiProvider);
   const resolvedAiApiKey=aiApiKey??({gemini:geminiApiKey,openai:openaiApiKey}[ai.id]);
   const demoAiRuntime=ai.id==='gemini'?createGeminiDemoRuntime({apiKey:resolvedAiApiKey,fetchImpl:chatFetch,model:chatModels.reasoning||process.env.COLLEAGUE_ZERO_GEMINI_REASONING_MODEL}):null;
+  const staticCache=new Map();
+  const readStatic=async file=>{
+    let pending=staticCache.get(file);
+    if(!pending){pending=readFile(file).catch(error=>{staticCache.delete(file);throw error;});staticCache.set(file,pending);}
+    return pending;
+  };
+  for(const asset of ['index.html','app.js','messenger-view.js','avatar-library.js','voice-live.js','education-ui.js','styles.css','messenger.css','messenger-enhancements.css','workspace-shell.css','avatar-gallery.css','assets/brand/logo-dark.png','assets/brand/logo-light.png']){
+    const file=resolve(root,asset);readStatic(file).catch(()=>{});
+  }
   const db=openStore(databasePath);
   const tokenVault=createTokenVault(db,{encryptionKey:environment.COLLEAGUE_ZERO_TOKEN_ENCRYPTION_KEY});
   const oauthRuntime=createOAuthRuntime(db,{vault:tokenVault,environment,fetchImpl:toolFetch});
@@ -800,7 +809,7 @@ export function createApp({databasePath=resolve('data/build-bot-colleague-zero.s
       const path=url.pathname==='/'?'/index.html':url.pathname;
       const file=resolve(root,`.${decodeURIComponent(path)}`);
       if(!(file===root||file.startsWith(root+sep))) return fail(res,403,'Forbidden.');
-      try {const bytes=await readFile(file);res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream','X-Content-Type-Options':'nosniff','Cache-Control':path.startsWith('/assets/bot-avatars/')?'public, max-age=86400':'no-cache'});res.end(bytes);}
+      try {const bytes=await readStatic(file),longLived=path.startsWith('/assets/');res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream','X-Content-Type-Options':'nosniff','Cache-Control':longLived?'public, max-age=604800, immutable':'public, max-age=3600'});res.end(bytes);}
       catch {fail(res,404,'Not found.');}
     } catch(err) {fail(res,400,String(err?.message||err).slice(0,300));}
   });
