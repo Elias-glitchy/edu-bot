@@ -1,0 +1,22 @@
+const bytesToBase64=bytes=>{let binary='';for(let offset=0;offset<bytes.length;offset+=0x8000)binary+=String.fromCharCode(...bytes.subarray(offset,offset+0x8000));return btoa(binary);};
+const base64ToBytes=value=>{const binary=atob(value),bytes=new Uint8Array(binary.length);for(let index=0;index<binary.length;index++)bytes[index]=binary.charCodeAt(index);return bytes;};
+
+function pcm16(floatSamples,inputRate,targetRate=16000){
+  const ratio=inputRate/targetRate,length=Math.max(1,Math.floor(floatSamples.length/ratio)),bytes=new Uint8Array(length*2),view=new DataView(bytes.buffer);
+  for(let index=0;index<length;index++){const start=Math.floor(index*ratio),end=Math.max(start+1,Math.floor((index+1)*ratio));let total=0;for(let source=start;source<end&&source<floatSamples.length;source++)total+=floatSamples[source];const sample=Math.max(-1,Math.min(1,total/(end-start)));view.setInt16(index*2,sample<0?sample*0x8000:sample*0x7fff,true);}
+  return bytes;
+}
+
+export async function startGeminiVoice({token,model,websocketEndpoint,onStatus=()=>{},onTranscript=()=>{},onError=()=>{}}){
+  const stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true},video:false}),AudioContext=window.AudioContext||window.webkitAudioContext,audio=new AudioContext(),source=audio.createMediaStreamSource(stream),processor=audio.createScriptProcessor(4096,1,1),silent=audio.createGain();silent.gain.value=0;source.connect(processor);processor.connect(silent);silent.connect(audio.destination);
+  let stopped=false,ready=false,nextPlayback=audio.currentTime,websocket,inputTranscript='',outputTranscript='';
+  const play=data=>{const bytes=base64ToBytes(data),samples=new Int16Array(bytes.buffer,bytes.byteOffset,Math.floor(bytes.byteLength/2)),buffer=audio.createBuffer(1,samples.length,24000),channel=buffer.getChannelData(0);for(let index=0;index<samples.length;index++)channel[index]=samples[index]/32768;const node=audio.createBufferSource();node.buffer=buffer;node.connect(audio.destination);nextPlayback=Math.max(nextPlayback,audio.currentTime+.03);node.start(nextPlayback);nextPlayback+=buffer.duration;};
+  const stop=async()=>{if(stopped)return;stopped=true;ready=false;processor.disconnect();source.disconnect();silent.disconnect();stream.getTracks().forEach(track=>track.stop());if(websocket?.readyState<=1)websocket.close(1000,'User ended voice session');await audio.close();onStatus('ended');};
+  websocket=new WebSocket(`${websocketEndpoint}?access_token=${encodeURIComponent(token)}`);
+  processor.onaudioprocess=event=>{if(!ready||stopped||websocket.readyState!==WebSocket.OPEN)return;const bytes=pcm16(event.inputBuffer.getChannelData(0),audio.sampleRate);websocket.send(JSON.stringify({realtimeInput:{audio:{data:bytesToBase64(bytes),mimeType:'audio/pcm;rate=16000'}}}));};
+  websocket.onopen=()=>{onStatus('connecting');websocket.send(JSON.stringify({setup:{model:`models/${model}`,generationConfig:{responseModalities:['AUDIO']},inputAudioTranscription:{},outputAudioTranscription:{},systemInstruction:{parts:[{text:'You are a BUILD BOT academic colleague. Be concise, safe, and ask for approval before consequential external actions.'}]}}}));};
+  websocket.onmessage=async event=>{try{const text=typeof event.data==='string'?event.data:await event.data.text(),message=JSON.parse(text);if(message.setupComplete){ready=true;onStatus('listening');return;}const content=message.serverContent;if(content?.inputTranscription?.text){inputTranscript+=content.inputTranscription.text;onTranscript('user',content.inputTranscription.text,false);}if(content?.outputTranscription?.text){outputTranscript+=content.outputTranscription.text;onTranscript('assistant',content.outputTranscription.text,false);}for(const part of content?.modelTurn?.parts||[])if(part.inlineData?.data)play(part.inlineData.data);if(content?.turnComplete){if(inputTranscript.trim())onTranscript('user',inputTranscript.trim(),true);if(outputTranscript.trim())onTranscript('assistant',outputTranscript.trim(),true);inputTranscript='';outputTranscript='';}if(content?.interrupted){nextPlayback=audio.currentTime;onStatus('listening');}}catch(error){onError(error);}};
+  websocket.onerror=()=>onError(new Error('Gemini Live WebSocket connection failed.'));
+  websocket.onclose=event=>{if(!stopped){onError(new Error(event.reason||'Gemini Live session closed.'));stop();}};
+  onStatus('microphone_ready');return {stop,get status(){return stopped?'ended':ready?'listening':'connecting';}};
+}

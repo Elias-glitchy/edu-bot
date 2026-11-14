@@ -23,7 +23,7 @@ test('page browsing rejects private destinations and private redirects',async()=
   await assert.rejects(browsePage('https://example.org/start',{fetchImpl,lookupImpl:publicLookup}),/Local or private/);
 });
 
-test('live search and page text are supplied to local reasoning model with verified citations',async()=>{
+test('live search and page text are supplied to hosted reasoning model with verified citations',async()=>{
   const calls=[];
   const toolFetch=async(url)=>{
     calls.push(url);
@@ -32,14 +32,18 @@ test('live search and page text are supplied to local reasoning model with verif
     throw new Error(`Unexpected URL: ${url}`);
   };
   let payload;
-  const fetchImpl=async(url,options)=>{assert.equal(url,'http://localhost:11434/api/chat');payload=JSON.parse(options.body);return new Response(JSON.stringify({message:{content:'The report says so [1].'}}),{status:200});};
-  const reply=await generateChatReply({agent,message:'What is the latest report?',fetchImpl,toolFetch,lookupImpl:publicLookup,searchApiKey:'test-key'});
-  assert.equal(payload.model,'qwen2.5:3b');
-  assert.match(JSON.stringify(payload.messages),/Verified report text/);
+  const fetchImpl=async(url,options)=>{assert.equal(url,'https://api.openai.com/v1/responses');payload=JSON.parse(options.body);return new Response(JSON.stringify({output_text:'The report says so [1].'}),{status:200});};
+  const reply=await generateChatReply({agent,message:'What is the latest report?',provider:'openai',fetchImpl,toolFetch,lookupImpl:publicLookup,searchApiKey:'test-key',apiKey:'test-openai-key'});
+  assert.equal(payload.model,'gpt-6.1-sol');
+  assert.match(JSON.stringify(payload.input),/Verified report text/);
   assert.match(reply,/Sources:\n\[1\] Fresh report — https:\/\/example\.org\/report/);
   assert.equal(calls.length,2);
 });
 
-test('fresh search fails clearly without a search key rather than guessing',async()=>{
-  await assert.rejects(generateChatReply({agent,message:'What is the latest news?',searchApiKey:''}),/not configured/);
+test('fresh search falls back to Gemini when a separate search key is unavailable',async()=>{
+  let payload;
+  const fetchImpl=async(_url,options)=>{payload=JSON.parse(options.body);return new Response(JSON.stringify({output_text:'I can explain the topic from general knowledge, but I cannot verify the latest update.'}),{status:200});};
+  const reply=await generateChatReply({agent,message:'What is the latest news?',provider:'openai',apiKey:'test-key',fetchImpl,searchApiKey:''});
+  assert.match(JSON.stringify(payload.instructions),/Live web verification was requested but is unavailable/);
+  assert.match(reply,/Live verification note:/);
 });

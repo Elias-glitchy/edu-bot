@@ -18,8 +18,8 @@ test('groups, missions, custom agents and reports stay inside their organization
     const a=await call('/auth/register','POST',{email:'extension-a@example.com',password:'test-password-a',organization:'Extension Alpha'});
     const b=await call('/auth/register','POST',{email:'extension-b@example.com',password:'test-password-b',organization:'Extension Beta'});
     const alpha=(await call('/state','GET',undefined,a.cookie)).body;
-    for(const slug of ['chief','intelligence-manager','finance-manager']) assert.equal((await call(`/agents/${alpha.agents.find(agent=>agent.slug===slug).id}/activate`,'POST',{},a.cookie)).status,200);
-    const intelligence=alpha.agents.find(agent=>agent.slug==='intelligence-manager');
+    for(const slug of ['chief','academic-research','student-records']) assert.equal((await call(`/agents/${alpha.agents.find(agent=>agent.slug===slug).id}/activate`,'POST',{},a.cookie)).status,200);
+    const intelligence=alpha.agents.find(agent=>agent.slug==='academic-research');
     const group=await call('/groups','POST',{title:'Research circle',agentIds:[intelligence.id]},a.cookie);
     assert.equal(group.status,201);
     const groupTask=await call('/research','POST',{objective:'Research low-carbon concrete',conversationId:group.body.groupId},a.cookie);
@@ -30,7 +30,7 @@ test('groups, missions, custom agents and reports stay inside their organization
     assert.equal(state.groupMessages.length,4);
     assert.equal(state.tasks[0].status,'completed');
     assert.equal((await call('/research','POST',{objective:'Research private data',conversationId:group.body.groupId},b.cookie)).status,404);
-    const finance=alpha.agents.find(agent=>agent.slug==='finance-manager');
+    const finance=alpha.agents.find(agent=>agent.slug==='student-records');
     const financeGroup=await call('/groups','POST',{title:'Finance research team',agentIds:[finance.id]},a.cookie);
     assert.equal(financeGroup.status,201);
     const financeGroupTask=await call('/research','POST',{objective:'Research public accounting standards',conversationId:financeGroup.body.groupId},a.cookie);

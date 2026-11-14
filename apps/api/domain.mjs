@@ -16,7 +16,7 @@ export function queueResearch(db,{organizationId,ownerId,objective,conversationI
   const {query}=validateObjective(objective);
   const agent=agentId
     ?db.prepare("SELECT id,name,slug FROM agents WHERE id=? AND organization_id=? AND enabled=1 AND deleted_at IS NULL AND slug!='chief'").get(agentId,organizationId)
-    :db.prepare("SELECT id,name,slug FROM agents WHERE organization_id=? AND slug='intelligence-manager' AND enabled=1").get(organizationId);
+    :db.prepare("SELECT id,name,slug FROM agents WHERE organization_id=? AND slug='academic-research' AND enabled=1 AND archived_at IS NULL").get(organizationId);
   if(!agent) throw new Error('The selected bot is unavailable.');
   const taskId=id(),plan=['Interpret the research topic',`${agent.name} searches a public source`,'Return source links and excerpts'];
   db.prepare('INSERT INTO messages(id,organization_id,sender,body,task_id,created_at,conversation_id) VALUES(?,?,?,?,?,?,?)').run(id(),organizationId,'owner',objective,taskId,now(),conversationId);

@@ -4,7 +4,7 @@ import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createApp } from '../apps/api/server.mjs';
-import { AVATARS, DEFAULT_AVATAR_ID, agentAvatarSrc, isValidAvatarId } from '../apps/web/avatar-library.js';
+import { AVATARS, BUILT_IN_AVATAR_ASSETS, DEFAULT_AVATAR_ID, agentAvatarSrc, isValidAvatarId } from '../apps/web/avatar-library.js';
 
 test('all 75 corrected avatar assets have stable unique IDs and square PNG files',()=>{
   assert.equal(AVATARS.length,75);
@@ -24,6 +24,14 @@ test('all 75 corrected avatar assets have stable unique IDs and square PNG files
   assert.equal(agentAvatarSrc({kind:'custom',avatar_id:'bot_avatar_075'}),AVATARS[74].src);
   assert.equal(agentAvatarSrc({kind:'custom'}),AVATARS[0].src);
   assert.equal(agentAvatarSrc({kind:'built_in',slug:'chief'}),'/assets/agents/chief.png');
+  assert.equal(agentAvatarSrc({kind:'built_in',slug:'student-records'}),'/assets/agents/finance-manager.png');
+  assert.equal(agentAvatarSrc({kind:'built_in',slug:'student-communications'}),'/assets/agents/outbound-manager.png');
+  assert.equal(agentAvatarSrc({kind:'built_in',slug:'student-support-tutoring'}),'/assets/agents/crm-manager.png');
+  assert.equal(Object.keys(BUILT_IN_AVATAR_ASSETS).length,11);
+  for(const [slug,asset] of Object.entries(BUILT_IN_AVATAR_ASSETS)){
+    const path=join(process.cwd(),'apps','web','assets','agents',`${asset}.png`);
+    assert.equal(existsSync(path),true,`${slug} reuses missing legacy artwork ${asset}.png`);
+  }
 });
 
 test('changing only avatar leaves a bot configuration, scheduled work, and research behavior unchanged',async()=>{

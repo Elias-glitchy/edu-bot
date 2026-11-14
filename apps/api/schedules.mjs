@@ -33,7 +33,7 @@ export function createSchedule(db,organizationId,ownerId,input) {
   const agent=spec.kind==='research'
     ?requestedAgentId
       ?db.prepare("SELECT id,name FROM agents WHERE id=? AND organization_id=? AND enabled=1 AND slug!='chief'").get(requestedAgentId,organizationId)
-      :db.prepare("SELECT id,name FROM agents WHERE organization_id=? AND slug='intelligence-manager' AND enabled=1").get(organizationId)
+      :db.prepare("SELECT id,name FROM agents WHERE organization_id=? AND slug='academic-research' AND enabled=1 AND archived_at IS NULL").get(organizationId)
     :null;
   if(spec.kind==='research'&&!agent) throw new Error('Choose an active bot in this workspace for the research routine.');
   const count=db.prepare('SELECT COUNT(*) AS n FROM schedules WHERE organization_id=?').get(organizationId).n;

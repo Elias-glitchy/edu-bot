@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Google Chrome
+Comment=Open the web browser
+Exec=/opt/build-bot/launch-chromium.sh
+Icon=chromium
+Terminal=false
+StartupNotify=true
+Categories=Network;WebBrowser;

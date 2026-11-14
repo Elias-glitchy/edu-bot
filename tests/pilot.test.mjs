@@ -54,7 +54,7 @@ test('owner delegates research, receives a persisted result, and cannot access a
     assert.ok(first.body.agents.every(agent=>agent.enabled===0));
     assert.equal(first.body.tasks.length,0);
     assert.equal((await call('/state')).status,401);
-    for(const slug of ['chief','intelligence-manager']) {
+    for(const slug of ['chief','academic-research']) {
       const agent=first.body.agents.find(item=>item.slug===slug);
       assert.equal((await call(`/agents/${agent.id}/activate`,'POST',{},a.cookie)).status,200);
     }
@@ -110,7 +110,7 @@ test('owner can pause, resume, and cancel a running task', async()=>{
   try {
     const owner=await send('/auth/register','POST',{email:'d@example.com',password:'secure-password-d',organization:'Delta'});
     const agents=(await send('/state','GET',undefined,owner.cookie)).body.agents;
-    for(const slug of ['chief','intelligence-manager']) assert.equal((await send(`/agents/${agents.find(agent=>agent.slug===slug).id}/activate`,'POST',{},owner.cookie)).status,200);
+    for(const slug of ['chief','academic-research']) assert.equal((await send(`/agents/${agents.find(agent=>agent.slug===slug).id}/activate`,'POST',{},owner.cookie)).status,200);
     const a=await send('/research','POST',{objective:'Research clean building materials'},owner.cookie);
     assert.equal((await send(`/tasks/${a.body.taskId}/pause`,'POST',{},owner.cookie)).body.status,'paused');
     await app.work();

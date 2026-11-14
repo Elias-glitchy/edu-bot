@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_DB: build_bot
+      POSTGRES_USER: build_bot
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+    secrets: [postgres_password]
+    volumes:
+      - build_bot_postgres:/var/lib/postgresql/data
+      - ../postgres/001_control_plane.sql:/docker-entrypoint-initdb.d/001_control_plane.sql:ro
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U build_bot -d build_bot]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+  redis:
+    image: redis:7.4-bookworm
+    command: [sh, -c, 'exec redis-server --appendonly yes --requirepass "$$(cat /run/secrets/redis_password)"']
+    secrets: [redis_password]
+    volumes: [build_bot_redis:/data]
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+volumes:
+  build_bot_postgres:
+  build_bot_redis:
+secrets:
+  postgres_password:
+    file: ./secrets/postgres_password.txt
+  redis_password:
+    file: ./secrets/redis_password.txt

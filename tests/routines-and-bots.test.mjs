@@ -43,7 +43,7 @@ test('all built-in managers accept bounded direct research; routines survive res
     const a=await call('/auth/register','POST',{email:'routines-a@example.com',password:'long-password-a',organization:'Alpha'});
     const b=await call('/auth/register','POST',{email:'routines-b@example.com',password:'long-password-b',organization:'Beta'});
     const first=(await call('/state','GET',undefined,a.cookie)).body;
-    const finance=first.agents.find(agent=>agent.slug==='finance-manager');
+    const finance=first.agents.find(agent=>agent.slug==='student-records');
     assert.equal((await call(`/agents/${finance.id}/activate`,'POST',{},a.cookie)).status,200);
     const direct=await call(`/agents/${finance.id}/research`,'POST',{objective:'Research public finance reporting guidance'},a.cookie);
     assert.equal(direct.status,201,JSON.stringify(direct.body));
@@ -52,7 +52,7 @@ test('all built-in managers accept bounded direct research; routines survive res
     assert.equal(afterDirect.directConversations.length,1);
     assert.equal(afterDirect.tasks[0].agent_id,finance.id);
     assert.equal(afterDirect.groupMessages.filter(m=>m.conversation_id===direct.body.conversationId).length,3);
-    assert.ok(afterDirect.groupMessages.some(m=>m.sender==='finance-manager'));
+    assert.ok(afterDirect.groupMessages.some(m=>m.sender==='student-records'));
     assert.equal((await call(`/agents/${finance.id}/research`,'POST',{objective:'Research public guidance'},b.cookie)).status,404);
     const research=await call('/schedules','POST',{kind:'research',title:'Daily research',agentId:finance.id,objective:'Research circular building methods',localTime:'09:00',weekdays:[0,1,2,3,4,5,6]},a.cookie);
     const report=await call('/schedules','POST',{kind:'report',title:'Daily work report',reportType:'daily',localTime:'09:00',weekdays:[0,1,2,3,4,5,6]},a.cookie);

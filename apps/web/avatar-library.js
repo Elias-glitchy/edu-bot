@@ -8,6 +8,22 @@ export const AVATARS=Object.freeze(Array.from({length:75},(_,index)=>{
 export const DEFAULT_AVATAR_ID=AVATARS[0].id;
 const byId=new Map(AVATARS.map(avatar=>[avatar.id,avatar]));
 
+// The education workforce reuses the original built-in robot artwork unchanged.
+// Only the role names and responsibilities changed during the education migration.
+export const BUILT_IN_AVATAR_ASSETS=Object.freeze({
+  chief:'chief',
+  'academic-operations':'operations-manager',
+  'student-records':'finance-manager',
+  'curriculum-lesson-planning':'sales-manager',
+  'student-communications':'outbound-manager',
+  'academic-research':'intelligence-manager',
+  'student-support-tutoring':'crm-manager',
+  'academic-reporting-analytics':'marketing-manager',
+  'technology-integrations':'technology-manager',
+  'assessment-grading':'tender-bid-manager',
+  'academic-quality-assurance':'estimating-commercial-manager'
+});
+
 export function isValidAvatarId(value){return typeof value==='string'&&byId.has(value);}
 export function avatarAsset(value){return byId.get(value)||byId.get(DEFAULT_AVATAR_ID);}
 export function agentAvatarSrc(agent){
@@ -15,7 +31,8 @@ export function agentAvatarSrc(agent){
   if(isValidAvatarId(selected))return avatarAsset(selected).src;
   if(agent?.kind==='custom')return avatarAsset(DEFAULT_AVATAR_ID).src;
   const slug=String(agent?.slug||'chief');
-  return /^[a-z0-9-]+$/.test(slug)?`/assets/agents/${slug}.png`:'/assets/agents/chief.png';
+  const asset=BUILT_IN_AVATAR_ASSETS[slug]||slug;
+  return /^[a-z0-9-]+$/.test(asset)?`/assets/agents/${asset}.png`:'/assets/agents/chief.png';
 }
 export function agentAvatarMarkup(agent,{className='',alt='',loading='lazy'}={}){
   const safe=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));

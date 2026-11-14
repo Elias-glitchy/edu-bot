@@ -6,6 +6,7 @@ $url = 'http://localhost:3005'
 $logDirectory = Join-Path $projectDirectory '.local-server'
 $env:COLLEAGUE_ZERO_PORT = '3005'
 $env:COLLEAGUE_ZERO_DB = 'data/build-bot-colleague-zero.sqlite'
+$env:COLLEAGUE_ZERO_AI_PROVIDER = 'gemini'
 
 function Test-BuildBotServer {
   try {

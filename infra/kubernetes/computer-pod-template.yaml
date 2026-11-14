@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  generateName: build-bot-home-
+  namespace: build-bot
+  labels: {build-bot-managed: 'true'}
+spec: {accessModes: [ReadWriteOnce], resources: {requests: {storage: 10Gi}}}
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  generateName: build-bot-computer-
+  namespace: build-bot
+  labels: {app: build-bot-computer, build-bot-managed: 'true'}
+spec:
+  runtimeClassName: gvisor
+  automountServiceAccountToken: false
+  restartPolicy: Never
+  securityContext: {runAsNonRoot: true, seccompProfile: {type: RuntimeDefault}}
+  containers:
+    - name: computer
+      image: replace.example/build-bot-computer:VERSION
+      ports: [{name: novnc, containerPort: 6080}]
+      volumeMounts: [{name: home, mountPath: /home/bot}, {name: scratch, mountPath: /tmp}]
+      resources: {requests: {cpu: 250m, memory: 512Mi}, limits: {cpu: '1500m', memory: 2Gi}}
+      securityContext: {allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: {drop: [ALL]}}
+  volumes:
+    - {name: home, persistentVolumeClaim: {claimName: REPLACE_PVC_NAME}}
+    - {name: scratch, emptyDir: {sizeLimit: 512Mi}}

@@ -1,0 +1,16 @@
+{
+  "rubric_id": "RUBRIC-EDU-DEMO-001",
+  "course_id": "EDU-DEMO-101",
+  "assignment_id": "A1",
+  "title": "Digital Citizenship and Online Safety",
+  "maximum_points": 100,
+  "status": "DEMONSTRATION_ONLY",
+  "criteria": [
+    {"key":"thesis","title":"Clear explanation and purpose","max_points":20,"guidance":"Specific topic framing and a coherent central position."},
+    {"key":"privacy","title":"Privacy and security strategies","max_points":20,"guidance":"Practical privacy and account-security steps."},
+    {"key":"respect","title":"Respectful digital communication","max_points":20,"guidance":"Respect, consent, anti-bullying and responsible communication."},
+    {"key":"critical","title":"Critical information evaluation","max_points":20,"guidance":"Source evaluation, verification and misinformation awareness."},
+    {"key":"structure","title":"Structure, clarity and examples","max_points":20,"guidance":"Clear structure supported by illustrative examples."}
+  ],
+  "human_review_required": true
+}

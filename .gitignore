@@ -4,3 +4,12 @@ node_modules/
 !.env.example
 *.log
 .local-server/
+backups/
+artifacts/
+output/
+tmp/
+*.zip
+*.sqlite*
+coverage/
+.DS_Store
+Thumbs.db

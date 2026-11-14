@@ -1,0 +1,10 @@
+{
+  "fixture_purpose":"DETERMINISTIC_QA_ERROR_DETECTION",
+  "fictional_only":true,
+  "student_id":"STU-001",
+  "rubric_id":"RUBRIC-EDU-DEMO-001",
+  "criterion_scores":[{"key":"thesis","points":17},{"key":"privacy","points":16},{"key":"respect","points":18},{"key":"critical","points":15},{"key":"structure","points":14}],
+  "claimed_total":95,
+  "expected_derived_total":80,
+  "expected_qa_result":"REJECT_SCORE_SUM_MISMATCH"
+}

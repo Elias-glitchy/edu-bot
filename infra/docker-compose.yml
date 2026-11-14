@@ -1,0 +1,7 @@
+services:
+  computer-image-builder:
+    profiles: [build-only]
+    image: build-bot-computer:dev
+    build:
+      context: ./computer-image
+    command: ["true"]

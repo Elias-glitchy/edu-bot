@@ -27,7 +27,7 @@ test('built-in bots start outside the Inbox, activate per workspace, and cannot 
     assert.match(html,/Your Inbox starts empty/);
     assert.doesNotMatch(html,/data-inbox-agent=/);
     const chief=state.agents.find(agent=>agent.slug==='chief');
-    const finance=state.agents.find(agent=>agent.slug==='finance-manager');
+    const finance=state.agents.find(agent=>agent.slug==='student-records');
     assert.equal((await call(`/agents/${chief.id}/activate`,'POST',{},other.cookie)).status,404);
     assert.equal((await call(`/agents/${chief.id}`,'DELETE',undefined,owner.cookie)).status,404);
     assert.equal((await call(`/agents/${finance.id}/activate`,'POST',{},owner.cookie)).status,200);
